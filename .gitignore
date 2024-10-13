@@ -1,0 +1,14 @@
+# .gitignore for Python project
+
+# Ignore PyCharm/IntelliJ IDEA files
+.idea/
+
+# Ignore Python cache files
+__pycache__/
+models/__pycache__
+**/__pycache__/
+
+# You can add more rules as needed
+# For example, ignore environment directories
+venv/
+env/

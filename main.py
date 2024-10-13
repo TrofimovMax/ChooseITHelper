@@ -1,6 +1,8 @@
+# main.py
+
 from typing import Union
 
-from models import User, Technology, Framework, Team, Developer
+from models import User, Framework, Team, Developer
 from database import engine, get_db
 from fastapi import FastAPI, Depends
 from sqlalchemy.orm import Session
