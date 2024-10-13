@@ -853,11 +853,11 @@ technologies_data = [
             },
             {
                 "name": "Ravenscar",
-                "application_area": "REAL_TIME_SYSTEMS"
+                "application_area": "BUSINESS_SYSTEMS"
             },
             {
                 "name": "SPARK",
-                "application_area": "FORMAL_VERIFICATION"
+                "application_area": "SCRIPTING"
             },
             {
                 "name": "AdaCore",
@@ -865,7 +865,7 @@ technologies_data = [
             },
             {
                 "name": "GLADE",
-                "application_area": "DISTRIBUTED_SYSTEMS"
+                "application_area": "DOMAIN_SPECIFIC"
             }
         ]
     },
@@ -878,7 +878,7 @@ technologies_data = [
             },
             {
                 "name": "Simula",
-                "application_area": "SIMULATION"
+                "application_area": "DOMAIN_SPECIFIC"
             },
             {
                 "name": "Pascal",
@@ -907,11 +907,11 @@ technologies_data = [
             },
             {
                 "name": "LLVM",
-                "application_area": "COMPILERS"
+                "application_area": "GENERAL_PURPOSE"
             },
             {
                 "name": "CMake",
-                "application_area": "BUILD_SYSTEMS"
+                "application_area": "GENERAL_PURPOSE"
             },
             {
                 "name": "Emscripten",
@@ -924,7 +924,7 @@ technologies_data = [
         "frameworks": [
             {
                 "name": "Qt",
-                "application_area": "GUI_DEVELOPMENT"
+                "application_area": "DOMAIN_SPECIFIC"
             },
             {
                 "name": "Boost",
@@ -932,15 +932,15 @@ technologies_data = [
             },
             {
                 "name": "Poco",
-                "application_area": "NETWORKING"
+                "application_area": "WEB_DEVELOPMENT"
             },
             {
                 "name": "Cinder",
-                "application_area": "MULTIMEDIA"
+                "application_area": "GENERAL_PURPOSE"
             },
             {
                 "name": "JUCE",
-                "application_area": "AUDIO_PROCESSING"
+                "application_area": "DOMAIN_SPECIFIC"
             }
         ]
     },
@@ -957,7 +957,7 @@ technologies_data = [
             },
             {
                 "name": "Entity Framework",
-                "application_area": "DATABASE_MANAGEMENT"
+                "application_area": "BUSINESS_SYSTEMS"
             },
             {
                 "name": "NancyFx",
@@ -965,7 +965,7 @@ technologies_data = [
             },
             {
                 "name": "Orleans",
-                "application_area": "DISTRIBUTED_SYSTEMS"
+                "application_area": "SYSTEMS_PROGRAMMING"
             }
         ]
     },
@@ -974,23 +974,23 @@ technologies_data = [
         "frameworks": [
             {
                 "name": "CLEO IDE",
-                "application_area": "SOFTWARE_DEVELOPMENT"
+                "application_area": "SYSTEMS_PROGRAMMING"
             },
             {
                 "name": "CLEO Compiler",
-                "application_area": "COMPILERS"
+                "application_area": "GENERAL_PURPOSE"
             },
             {
                 "name": "SIL",
-                "application_area": "SOFTWARE_ENGINEERING"
+                "application_area": "SYSTEMS_PROGRAMMING"
             },
             {
                 "name": "MODSIM",
-                "application_area": "SIMULATION"
+                "application_area": "BUSINESS_SYSTEMS"
             },
             {
                 "name": "Cytoscape",
-                "application_area": "DATA_ANALYSIS"
+                "application_area": "DATA_SCIENCE"
             }
         ]
     },
@@ -1024,11 +1024,11 @@ technologies_data = [
         "frameworks": [
             {
                 "name": "Cobra Compiler",
-                "application_area": "COMPILERS"
+                "application_area": "GENERAL_PURPOSE"
             },
             {
                 "name": "Cobra IDE",
-                "application_area": "SOFTWARE_DEVELOPMENT"
+                "application_area": "GENERAL_PURPOSE"
             },
             {
                 "name": "Mono",
@@ -1057,11 +1057,11 @@ technologies_data = [
             },
             {
                 "name": "Dplug",
-                "application_area": "AUDIO_PROCESSING"
+                "application_area": "DOMAIN_SPECIFIC"
             },
             {
                 "name": "DlangUI",
-                "application_area": "GUI_DEVELOPMENT"
+                "application_area": "DOMAIN_SPECIFIC"
             },
             {
                 "name": "Magpie",
@@ -1074,23 +1074,23 @@ technologies_data = [
         "frameworks": [
             {
                 "name": "Apache NiFi",
-                "application_area": "DATA_INTEGRATION"
+                "application_area": "DATA_SCIENCE"
             },
             {
                 "name": "DataWeave",
-                "application_area": "DATA_TRANSFORMATION"
+                "application_area": "BUSINESS_SYSTEMS"
             },
             {
                 "name": "Clojure",
-                "application_area": "GENERAL_PURPOSE"
+                "application_area": "DATA_SCIENCE"
             },
             {
                 "name": "Ballerina",
-                "application_area": "INTEGRATION"
+                "application_area": "BUSINESS_SYSTEMS"
             },
             {
                 "name": "XSLT",
-                "application_area": "DATA_TRANSFORMATION"
+                "application_area": "DATA_SCIENCE"
             }
         ]
     },
@@ -1132,7 +1132,7 @@ technologies_data = [
             },
             {
                 "name": "OpenMP",
-                "application_area": "PARALLEL_COMPUTING"
+                "application_area": "DATA_SCIENCE"
             },
             {
                 "name": "Fortran90",
@@ -1153,7 +1153,7 @@ technologies_data = [
             },
             {
                 "name": "Hibernate",
-                "application_area": "ORM"
+                "application_area": "BUSINESS_SYSTEMS"
             },
             {
                 "name": "Struts",
@@ -1174,19 +1174,19 @@ technologies_data = [
         "frameworks": [
             {
                 "name": "JOVIAL Compiler System",
-                "application_area": "COMPILERS"
+                "application_area": "SYSTEMS_PROGRAMMING"
             },
             {
                 "name": "Micro Focus JOVIAL",
-                "application_area": "COMPILERS"
+                "application_area": "SYSTEMS_PROGRAMMING"
             },
             {
                 "name": "JOVIAL IDE",
-                "application_area": "SOFTWARE_DEVELOPMENT"
+                "application_area": "SYSTEMS_PROGRAMMING"
             },
             {
                 "name": "GNATPro",
-                "application_area": "COMPILERS"
+                "application_area": "SYSTEMS_PROGRAMMING"
             },
             {
                 "name": "Ada",
@@ -1203,11 +1203,11 @@ technologies_data = [
             },
             {
                 "name": "Core Data",
-                "application_area": "DATA_PERSISTENCE"
+                "application_area": "MOBILE_DEVELOPMENT"
             },
             {
                 "name": "AFNetworking",
-                "application_area": "NETWORKING"
+                "application_area": "MOBILE_DEVELOPMENT"
             },
             {
                 "name": "Cocos2d",
@@ -1215,7 +1215,7 @@ technologies_data = [
             },
             {
                 "name": "Xcode",
-                "application_area": "IDE"
+                "application_area": "MOBILE_DEVELOPMENT"
             }
         ]
     },
@@ -1228,23 +1228,23 @@ technologies_data = [
         "frameworks": [
             {
                 "name": "Squeak",
-                "application_area": "EDUCATION"
+                "application_area": "GENERAL_PURPOSE"
             },
             {
                 "name": "Pharo",
-                "application_area": "DEVELOPMENT"
+                "application_area": "GENERAL_PURPOSE"
             },
             {
                 "name": "GemStone",
-                "application_area": "DATABASE"
+                "application_area": "BUSINESS_SYSTEMS"
             },
             {
                 "name": "Cincom Smalltalk",
-                "application_area": "DEVELOPMENT"
+                "application_area": "BUSINESS_SYSTEMS"
             },
             {
                 "name": "GNU Smalltalk",
-                "application_area": "OPEN_SOURCE"
+                "application_area": "GENERAL_PURPOSE"
             }
         ]
     },
@@ -1253,23 +1253,23 @@ technologies_data = [
         "frameworks": [
             {
                 "name": "BETA",
-                "application_area": "OBJECT_ORIENTED_PROGRAMMING"
+                "application_area": "SYSTEMS_PROGRAMMING"
             },
             {
                 "name": "Mjølner",
-                "application_area": "DEVELOPMENT"
+                "application_area": "SYSTEMS_PROGRAMMING"
             },
             {
                 "name": "Object-Oriented Simula",
-                "application_area": "OBJECT_ORIENTED_PROGRAMMING"
+                "application_area": "SYSTEMS_PROGRAMMING"
             },
             {
                 "name": "Simula-67",
-                "application_area": "OBJECT_ORIENTED_PROGRAMMING"
+                "application_area": "SYSTEMS_PROGRAMMING"
             },
             {
                 "name": "Simscript",
-                "application_area": "SIMULATION"
+                "application_area": "BUSINESS_SYSTEMS"
             }
         ]
     },
@@ -1290,11 +1290,11 @@ technologies_data = [
             },
             {
                 "name": "SwiftUI",
-                "application_area": "UI_DEVELOPMENT"
+                "application_area": "MOBILE_DEVELOPMENT"
             },
             {
                 "name": "Alamofire",
-                "application_area": "NETWORKING"
+                "application_area": "DOMAIN_SPECIFIC"
             }
         ]
     },
@@ -1743,22 +1743,31 @@ technologies_data = [
 
 def seed_languages_and_frameworks(db: Session):
     for lang_data in technologies_data:
+        if 'language' not in lang_data:
+            print("Language data is missing the 'language' key.")
+            continue
+
         existing_lang = db.query(Language).filter(Language.name == lang_data["language"]).first()
         if not existing_lang:
             language = Language(name=lang_data["language"])
             db.add(language)
-            db.commit()
-            db.refresh(language)
 
-            for framework_data in lang_data["frameworks"]:
-                framework = Framework(
-                    name=framework_data["name"],
-                    language_id=language.language_id,
-                    application_area=framework_data.get("application_area")
-                )
-                db.add(framework)
+            db.flush()
 
-            db.commit()
+            if 'frameworks' in lang_data and isinstance(lang_data['frameworks'], list):
+                for framework_data in lang_data["frameworks"]:
+                    if 'name' in framework_data:
+                        framework = Framework(
+                            name=framework_data["name"],
+                            language_id=language.language_id,  # Use the generated language_id
+                            application_area=framework_data.get("application_area")
+                        )
+                        db.add(framework)
+                    else:
+                        print("Framework data is missing the 'name' key.")
+            else:
+                print(f"No valid frameworks found for language: {lang_data['language']}")
+
         else:
             print(f"Language {lang_data['language']} already exists in the database.")
 
@@ -1766,7 +1775,11 @@ def seed_languages_and_frameworks(db: Session):
 def main():
     db = SessionLocal()
     try:
-        seed_languages_and_frameworks(db)
+        with db.begin():
+            seed_languages_and_frameworks(db)
+    except Exception as e:
+        print(f"An error occurred: {e}")
+        db.rollback()
     finally:
         db.close()
 
