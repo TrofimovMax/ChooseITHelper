@@ -1,4 +1,4 @@
-# seed.py
+# seeds/languages_frameworks.py
 
 from sqlalchemy.orm import Session
 from database import SessionLocal, engine

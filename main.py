@@ -1,16 +1,16 @@
 # main.py
 
-from typing import Union
-
-from models import User, Framework, Team, Developer
-from database import engine, get_db
-from fastapi import FastAPI, Depends
-from sqlalchemy.orm import Session
-from models.base import Base
-
+from fastapi import FastAPI
+from models import Base
+from database import engine
+from routes import init_routes
 
 app = FastAPI()
+
 Base.metadata.create_all(bind=engine)
+
+init_routes(app)
+
 
 @app.get("/")
 def read_root():
@@ -18,11 +18,5 @@ def read_root():
 
 
 @app.get("/items/{item_id}")
-def read_item(item_id: int, q: Union[str, None] = None):
+def read_item(item_id: int, q: str | None = None):
     return {"item_id": item_id, "q": q}
-
-@app.get("/users/")
-def read_users(db: Session = Depends(get_db)):
-    users = db.query(User).all()
-    return users
-
