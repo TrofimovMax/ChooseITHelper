@@ -12,6 +12,7 @@ class Option(Base):
     title = Column(Text, nullable=False)
     description = Column(Text, nullable=True)
     image_path = Column(String, nullable=True)
+    key = Column(String, nullable=False)
     question_id = Column(Integer, ForeignKey("questions.question_id"), nullable=False)
 
     question = relationship("Question", back_populates="options", foreign_keys=[question_id])

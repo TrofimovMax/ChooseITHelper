@@ -5,6 +5,7 @@ import os
 import json
 import argparse
 from sqlalchemy.orm import Session
+from sqlalchemy.sql import func
 from models.question import Question
 from models.option import Option
 from models.question_key import QuestionKey
@@ -19,6 +20,7 @@ sys.path.append(project_root)
 
 
 def seed_questions(questions_file: str):
+    """Seeding the questions and their keys into the database"""
     db: Session = SessionLocal()
 
     with open(questions_file, "r", encoding="utf-8") as q_file:
@@ -37,10 +39,11 @@ def seed_questions(questions_file: str):
         db.commit()
 
     db.close()
-    print(f"Questions from {questions_file} successfully seeded!")
+    print(f"Вопросы из {questions_file} успешно добавлены!")
 
 
 def seed_options(options_file: str):
+    """Seeding options into a database with an exact key match"""
     db: Session = SessionLocal()
 
     with open(options_file, "r", encoding="utf-8") as o_file:
@@ -48,27 +51,50 @@ def seed_options(options_file: str):
 
     for option_data in options_data:
         keys = option_data["key"]
-        questions = (
-            db.query(Question)
-            .join(QuestionKey)
+
+        matching_question_id = (
+            db.query(QuestionKey.question_id)
             .filter(QuestionKey.key.in_(keys))
-            .all()
+            .group_by(QuestionKey.question_id)
+            .having(func.count(QuestionKey.key) == len(keys))
+            .first()
         )
 
-        for question in questions:
-            for opt in option_data["options"]:
-                db.add(
-                    Option(
-                        title=opt["title"],
-                        description=opt["description"],
-                        image_path=opt["image"],
-                        question_id=question.question_id,
-                    )
+        if not matching_question_id:
+            print(f"No questions for keys: {keys}. Skip it.")
+            continue
+
+        question_id = matching_question_id[0]
+
+        for opt in option_data["options"]:
+            existing_option = (
+                db.query(Option)
+                .filter(
+                    Option.key == opt["key"],
+                    Option.question_id == question_id,
                 )
+                .first()
+            )
+            if existing_option:
+                print(
+                    f"The option '{opt['key']}' already exists for question_id={question_id}. Skip it."
+                )
+                continue
+
+            new_option = Option(
+                title=opt["title"],
+                description=opt["description"],
+                image_path=opt["image"],
+                key=opt["key"],
+                question_id=question_id,
+            )
+            db.add(new_option)
+            print(f"Added the option '{opt['key']}' for question_id={question_id}.")
+
         db.commit()
 
     db.close()
-    print(f"Options from {options_file} successfully seeded!")
+    print(f"Options from {options_file} have been successfully added!")
 
 
 if __name__ == "__main__":
