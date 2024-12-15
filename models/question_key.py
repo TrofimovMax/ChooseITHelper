@@ -9,8 +9,8 @@ class QuestionKey(Base):
     __tablename__ = "question_keys"
 
     id = Column(Integer, primary_key=True, index=True)
-    question_id = Column(Integer, ForeignKey("questions.question_id"))
-    key = Column(String, nullable=False)
+    question_id = Column(Integer, ForeignKey("questions.question_id"), nullable=False)
+    key_id = Column(Integer, ForeignKey("keys.id"), nullable=False)
 
     question = relationship("Question", back_populates="keys")
-    evaluations = relationship("FrameworkEvaluation", back_populates="question_key")
+    key = relationship("Key", back_populates="question_keys")

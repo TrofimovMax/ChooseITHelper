@@ -15,4 +15,4 @@ class User(Base):
     team_id = Column(Integer, ForeignKey("teams.team_id"))
 
     team = relationship("Team", back_populates="users", foreign_keys=[team_id])
-    results = relationship("Result", back_populates="users")
+    results = relationship("Result", back_populates="user")
