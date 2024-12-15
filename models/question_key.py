@@ -13,3 +13,4 @@ class QuestionKey(Base):
     key = Column(String, nullable=False)
 
     question = relationship("Question", back_populates="keys")
+    evaluations = relationship("FrameworkEvaluation", back_populates="question_key")

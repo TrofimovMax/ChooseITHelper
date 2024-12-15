@@ -4,6 +4,7 @@ from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
 from models.base import Base
 
+
 class User(Base):
     __tablename__ = "users"
 
@@ -13,5 +14,5 @@ class User(Base):
     role = Column(String, index=True)
     team_id = Column(Integer, ForeignKey("teams.team_id"))
 
-    # Явное указание внешнего ключа для связи с Team
     team = relationship("Team", back_populates="users", foreign_keys=[team_id])
+    results = relationship("Result", back_populates="users")

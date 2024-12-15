@@ -12,8 +12,5 @@ class Team(Base):
     team_id = Column(Integer, primary_key=True, index=True)
     team_name = Column(String, index=True)
     lead_id = Column(Integer, ForeignKey("users.user_id"), nullable=True)
-    smart_weight = Column(Integer, nullable=True)
-    expert_score = Column(Integer, nullable=True)
-    ahp_weight = Column(Integer, nullable=True)
 
     users = relationship("User", back_populates="team", foreign_keys=[User.team_id])

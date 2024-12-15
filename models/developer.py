@@ -12,6 +12,3 @@ class Developer(Base):
     technology_id = Column(Integer, ForeignKey("languages.language_id"))
     framework_id = Column(Integer, ForeignKey("frameworks.framework_id"), nullable=True)
     team_id = Column(Integer, ForeignKey("teams.team_id"))
-    smart_weight = Column(Integer, nullable=True)
-    expert_score = Column(Integer, nullable=True)
-    ahp_weight = Column(Integer, nullable=True)
