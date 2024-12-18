@@ -15,6 +15,7 @@ from database import SessionLocal
 # Adding the root directory of the project to sys.path
 # $env:PYTHONPATH="G:\myData\magistratura_lab_works\ChooseITHelper"
 # python seeds/questions_options.py --questions seeds/json/questions/questions.json --options seeds/json/options/options.json
+# python seeds/questions_options.py --questions seeds/json/questions/website_questions.json --options seeds/json/options/website_options.json
 current_dir = os.path.dirname(os.path.abspath(__file__))
 project_root = os.path.abspath(os.path.join(current_dir, ".."))
 sys.path.append(project_root)
@@ -30,6 +31,7 @@ def seed_questions(questions_file: str):
     for question_data in questions_data:
         # Create a question
         question = Question(text=question_data["question"])
+        is_criterion = question_data.get("is_criterion", False)
         db.add(question)
         db.commit()  # Commit to generate question_id
 
@@ -37,7 +39,7 @@ def seed_questions(questions_file: str):
         for key_name in question_data["key"]:
             key = db.query(Key).filter(Key.key == key_name).first()
             if not key:
-                key = Key(key=key_name)
+                key = Key(key=key_name, is_criterion=is_criterion)
                 db.add(key)
                 db.commit()
                 print(f"Added new key: {key_name}")
