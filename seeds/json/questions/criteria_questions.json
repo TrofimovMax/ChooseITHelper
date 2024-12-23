@@ -1,0 +1,27 @@
+[
+  {
+    "key": ["web_development", "real_time_data", "ai_support", "hybrid_chatbot"],
+    "question": "Каков ваш бюджет для реализации гибридного чат-бота?",
+    "is_criterion": true
+  },
+  {
+    "key": ["web_development", "real_time_data", "ai_support", "hybrid_chatbot"],
+    "question": "Насколько важна безопасность для вашего чат-бота?",
+    "is_criterion": true
+  },
+  {
+    "key": ["web_development", "real_time_data", "ai_support", "hybrid_chatbot"],
+    "question": "Какой уровень масштабируемости требуется для вашего чат-бота?",
+    "is_criterion": true
+  },
+  {
+    "key": ["web_development", "real_time_data", "ai_support", "hybrid_chatbot"],
+    "question": "Насколько важна интеграция с существующими системами?",
+    "is_criterion": true
+  },
+  {
+    "key": ["web_development", "real_time_data", "ai_support", "hybrid_chatbot"],
+    "question": "Какой уровень настройки чат-бота вам требуется?",
+    "is_criterion": true
+  }
+]

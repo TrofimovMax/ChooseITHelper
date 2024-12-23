@@ -14,5 +14,7 @@ class Option(Base):
     image_path = Column(String, nullable=True)
     key = Column(String, nullable=False)
     question_id = Column(Integer, ForeignKey("questions.question_id"), nullable=False)
+    next_question_id = Column(Integer, ForeignKey("questions.question_id"), nullable=True)
 
-    question = relationship("Question", back_populates="options", foreign_keys=[question_id])
+    question = relationship("Question", back_populates="options", foreign_keys=[question_id],)
+    next_question = relationship("Question", foreign_keys=[next_question_id])

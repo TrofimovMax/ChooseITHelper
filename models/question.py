@@ -11,5 +11,5 @@ class Question(Base):
     question_id = Column(Integer, primary_key=True, index=True)
     text = Column(Text, nullable=False)
 
-    options = relationship("Option", back_populates="question")
+    options = relationship("Option", back_populates="question", foreign_keys="[Option.question_id]")
     keys = relationship("QuestionKey", back_populates="question")

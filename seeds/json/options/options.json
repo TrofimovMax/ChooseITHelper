@@ -1,192 +1,277 @@
 [
   {
     "key": ["initial_key"],
+    "question_text": "Какова основная цель вашего проекта?",
     "options": [
       {
         "title": "Веб-сайт",
         "description": "Создание интерактивного веб-приложения для пользователей.",
-        "key": "web_site",
-        "image": "/images/web_site.png"
+        "key": "web_development",
+        "image": "/images/web_site.png",
+        "next_question_text": "Какие ключевые функции должны быть в этом приложении?"
       },
       {
         "title": "Мобильное приложение",
-        "description": "Разработка приложения для мобильных устройств.",
-        "key": "mobile_app",
-        "image": "/images/mobile_app.png"
+        "description": "Разработка приложений для мобильных устройств с кроссплатформенной поддержкой.",
+        "key": "cross_platform",
+        "image": "/images/mobile_app.png",
+        "next_question_text": "Какие ключевые функции должны быть в этом приложении?"
       },
       {
         "title": "Игра",
-        "description": "Создание увлекательной игры для различных платформ.",
-        "key": "game",
-        "image": "/images/game.png"
+        "description": "Создание увлекательных игр для различных платформ.",
+        "key": "game_development",
+        "image": "/images/game.png",
+        "next_question_text": "Какие ключевые функции должны быть в этом приложении?"
       },
       {
         "title": "Корпоративная система",
-        "description": "Программное обеспечение для управления бизнес-процессами.",
-        "key": "enterprise_system",
-        "image": "/images/enterprise_system.png"
+        "description": "Программное обеспечение для автоматизации и управления бизнес-процессами.",
+        "key": "enterprise_apps",
+        "image": "/images/enterprise_system.png",
+        "next_question_text": "Какие ключевые функции должны быть в этом приложении?"
       },
       {
         "title": "Интернет-магазин",
-        "description": "Создание онлайн-платформы для продажи товаров или услуг.",
-        "key": "e_commerce",
-        "image": "/images/e_commerce.png"
+        "description": "Создание платформы для онлайн-продаж товаров или услуг.",
+        "key": "transaction_processing",
+        "image": "/images/e_commerce.png",
+        "next_question_text": "Какие ключевые функции должны быть в этом приложении?"
       },
       {
         "title": "Образовательная платформа",
-        "description": "Платформа для обучения и обмена знаниями.",
-        "key": "education_platform",
-        "image": "/images/education_platform.png"
+        "description": "Платформа для онлайн-обучения и обмена знаниями.",
+        "key": "education",
+        "image": "/images/education_platform.png",
+        "next_question_text": "Какие ключевые функции должны быть в этом приложении?"
       },
       {
         "title": "Программное обеспечение для управления проектами",
-        "description": "Инструменты для планирования и отслеживания проектов.",
+        "description": "Инструменты для планирования, отслеживания и управления проектами.",
         "key": "project_management",
-        "image": "/images/project_management.png"
+        "image": "/images/project_management.png",
+        "next_question_text": "Какие ключевые функции должны быть в этом приложении?"
       },
       {
         "title": "Социальная сеть",
-        "description": "Платформа для общения и обмена информацией между пользователями.",
+        "description": "Платформа для общения и взаимодействия между пользователями.",
         "key": "social_network",
-        "image": "/images/social_network.png"
+        "image": "/images/social_network.png",
+        "next_question_text": "Какие ключевые функции должны быть в этом приложении?"
       },
       {
         "title": "Финансовое приложение",
-        "description": "Приложение для управления личными или корпоративными финансами.",
-        "key": "finance_app",
-        "image": "/images/finance_app.png"
+        "description": "Приложение для управления финансами и проведения транзакций.",
+        "key": "financial_analysis",
+        "image": "/images/finance_app.png",
+        "next_question_text": "Какие ключевые функции должны быть в этом приложении?"
       },
       {
         "title": "Платформа для аналитики данных",
-        "description": "Программное обеспечение для сбора и анализа данных.",
+        "description": "Программное обеспечение для анализа и обработки данных.",
         "key": "data_analytics",
-        "image": "/images/data_analytics.png"
+        "image": "/images/data_analytics.png",
+        "next_question_text": "Какие ключевые функции должны быть в этом приложении?"
       },
       {
         "title": "Платформа для здоровья и фитнеса",
         "description": "Приложение для мониторинга здоровья и физической активности.",
-        "key": "health_fitness",
-        "image": "/images/health_fitness.png"
+        "key": "healthcare",
+        "image": "/images/health_fitness.png",
+        "next_question_text": "Какие ключевые функции должны быть в этом приложении?"
       },
       {
         "title": "Мессенджер",
         "description": "Приложение для обмена сообщениями в реальном времени.",
-        "key": "messenger",
-        "image": "/images/messenger.png"
+        "key": "real_time",
+        "image": "/images/messenger.png",
+        "next_question_text": "Какие ключевые функции должны быть в этом приложении?"
       },
       {
         "title": "Платформа для бронирования",
-        "description": "Система для бронирования услуг (например, отелей, авиабилетов).",
-        "key": "booking_platform",
-        "image": "/images/booking_platform.png"
+        "description": "Система для бронирования услуг, таких как отели и авиабилеты.",
+        "key": "transaction_processing",
+        "image": "/images/booking_platform.png",
+        "next_question_text": "Какие ключевые функции должны быть в этом приложении?"
       },
       {
         "title": "CRM-система",
-        "description": "Система для управления взаимоотношениями с клиентами.",
-        "key": "crm",
-        "image": "/images/crm.png"
+        "description": "Система для управления клиентскими взаимоотношениями и данными.",
+        "key": "business_systems",
+        "image": "/images/crm.png",
+        "next_question_text": "Какие ключевые функции должны быть в этом приложении?"
       },
       {
         "title": "Программное обеспечение для автоматизации бизнеса",
         "description": "Инструменты для автоматизации бизнес-процессов.",
-        "key": "business_automation",
-        "image": "/images/business_automation.png"
+        "key": "automation",
+        "image": "/images/business_automation.png",
+        "next_question_text": "Какие ключевые функции должны быть в этом приложении?"
+      }
+    ]
+  },
+  {
+    "key": ["web_development"],
+    "question_text": "Какие ключевые функции должны быть в этом приложении?",
+    "options": [
+      {
+        "title": "Чат",
+        "description": "Интеграция функционала чата для обмена сообщениями.",
+        "key": "real_time_data",
+        "image": "/images/chat.png",
+        "next_question_text": "Какие дополнительные функции вы хотите в чате?"
       },
       {
-        "title": "Сайт-портфолио",
-        "description": "Сайт для представления работ или услуг фрилансера, компании или агентства.",
-        "key": "portfolio_site",
-        "image": "/images/portfolio_site.png"
+        "title": "Галерея",
+        "description": "Создание галереи изображений или каталога.",
+        "key": "data_visualization",
+        "image": "/images/gallery.png",
+        "next_question_text": "Какие дополнительные функции вы хотите в чате?"
       },
       {
-        "title": "Блог",
-        "description": "Платформа для публикации статей и создания контента.",
-        "key": "blog",
-        "image": "/images/blog.png"
+        "title": "Форма обратной связи",
+        "description": "Форма для связи с пользователями или получения отзывов.",
+        "key": "data_binding",
+        "image": "/images/feedback_form.png",
+        "next_question_text": "Какие дополнительные функции вы хотите в чате?"
       },
       {
-        "title": "Маркетинговая платформа",
-        "description": "Инструменты для управления маркетингом и рекламой.",
-        "key": "marketing_platform",
-        "image": "/images/marketing_platform.png"
+        "title": "Расширенный поиск",
+        "description": "Система поиска с фильтрами и категорией.",
+        "key": "search",
+        "image": "/images/search.png",
+        "next_question_text": "Какие дополнительные функции вы хотите в чате?"
       },
       {
-        "title": "Информационный портал",
-        "description": "Сайт или приложение для предоставления актуальных новостей и информации.",
-        "key": "news_portal",
-        "image": "/images/news_portal.png"
+        "title": "Панель администратора",
+        "description": "Интерфейс управления для администраторов приложения.",
+        "key": "admin_panel",
+        "image": "/images/admin_panel.png",
+        "next_question_text": "Какие дополнительные функции вы хотите в чате?"
+      }
+    ]
+  },
+  {
+    "key": ["web_development", "real_time_data"],
+    "question_text": "Какие дополнительные функции вы хотите в чате?",
+    "options": [
+      {
+        "title": "Групповой чат",
+        "description": "Поддержка общения между несколькими пользователями одновременно.",
+        "key": "message_passing",
+        "image": "/images/group_chat.png",
+        "next_question_text": "Какой тип функциональности чат-бота вам нужен?"
       },
       {
-        "title": "Платформа для проведения вебинаров",
-        "description": "Приложение для организации и проведения вебинаров и конференций.",
-        "key": "webinar_platform",
-        "image": "/images/webinar_platform.png"
+        "title": "Отправка файлов",
+        "description": "Возможность делиться документами, изображениями и другими файлами.",
+        "key": "data_transfer",
+        "image": "/images/file_sharing.png",
+        "next_question_text": "Какой тип функциональности чат-бота вам нужен?"
       },
       {
-        "title": "Система для управления документами",
-        "description": "Программное обеспечение для хранения и управления документами.",
-        "key": "document_management",
-        "image": "/images/document_management.png"
+        "title": "Видеозвонки",
+        "description": "Интеграция видеосвязи для пользователей чата.",
+        "key": "real_time_processing",
+        "image": "/images/video_calls.png",
+        "next_question_text": "Какой тип функциональности чат-бота вам нужен?"
       },
       {
-        "title": "Платформа для фриланса",
-        "description": "Сайт для поиска и предоставления фриланс-услуг.",
-        "key": "freelance_platform",
-        "image": "/images/freelance_platform.png"
+        "title": "Чат-бот",
+        "description": "Добавление автоматизированного взаимодействия с пользователями через чат-бот.",
+        "key": "ai_support",
+        "image": "/images/chat_bot.png",
+        "next_question_text": "Какой тип функциональности чат-бота вам нужен?"
       },
       {
-        "title": "Клиентская панель",
-        "description": "Приложение для управления данными и сервисами для клиентов.",
-        "key": "client_portal",
-        "image": "/images/client_portal.png"
+        "title": "История сообщений",
+        "description": "Сохранение всех сообщений для последующего просмотра.",
+        "key": "data_caching",
+        "image": "/images/message_history.png",
+        "next_question_text": "Какой тип функциональности чат-бота вам нужен?"
       },
       {
-        "title": "Программное обеспечение для управления складом",
-        "description": "Система для контроля за запасами и движением товаров.",
-        "key": "inventory_management",
-        "image": "/images/inventory_management.png"
+        "title": "Уведомления",
+        "description": "Оповещения о новых сообщениях, упоминаниях или приглашениях в чат.",
+        "key": "notifications",
+        "image": "/images/notifications.png",
+        "next_question_text": "Какой тип функциональности чат-бота вам нужен?"
       },
       {
-        "title": "Автоматизация производства",
-        "description": "ПО для контроля и управления процессами на производстве.",
-        "key": "production_automation",
-        "image": "/images/production_automation.png"
+        "title": "Шифрование",
+        "description": "Обеспечение безопасности сообщений с помощью шифрования.",
+        "key": "data_security",
+        "image": "/images/encryption.png",
+        "next_question_text": "Какой тип функциональности чат-бота вам нужен?"
       },
       {
-        "title": "Рекламная платформа",
-        "description": "Платформа для создания и управления рекламными кампаниями.",
-        "key": "advertisement_platform",
-        "image": "/images/advertisement_platform.png"
+        "title": "Поиск по сообщениям",
+        "description": "Возможность искать сообщения по ключевым словам или датам.",
+        "key": "text_search",
+        "image": "/images/message_search.png",
+        "next_question_text": "Какой тип функциональности чат-бота вам нужен?"
       },
       {
-        "title": "Геолокационное приложение",
-        "description": "Приложение с функциями карт и геолокации.",
-        "key": "geo_location_app",
-        "image": "/images/geo_location_app.png"
+        "title": "Поддержка мультиязычного интерфейса",
+        "description": "Чат с поддержкой нескольких языков.",
+        "key": "multi_tenancy",
+        "image": "/images/multilingual_chat_support.png",
+        "next_question_text": "Какой тип функциональности чат-бота вам нужен?"
       },
       {
-        "title": "Сервис подписки",
-        "description": "Приложение для управления подписками и периодическими платежами.",
-        "key": "subscription_service",
-        "image": "/images/subscription_service.png"
+        "title": "Интеграция с социальными сетями",
+        "description": "Возможность взаимодействия с чатами через соцсети (например, Telegram или WhatsApp).",
+        "key": "cloud_integration",
+        "image": "/images/social_media_integration.png",
+        "next_question_text": "Какой тип функциональности чат-бота вам нужен?"
+      }
+    ]
+  },
+
+  {
+    "key": ["web_development", "real_time_data", "ai_support"],
+    "question_text": "Какой тип функциональности чат-бота вам нужен?",
+    "options": [
+      {
+        "title": "Чат-бот с ИИ",
+        "description": "Интеллектуальный бот, использующий ИИ для обработки запросов.",
+        "key": "ai_powered_chatbot",
+        "image": "/images/ai_powered_chatbot.png",
+        "next_question_text": "Какова основная цель вашего гибридного чат-бота?"
       },
       {
-        "title": "Искусственный интеллект и машинное обучение",
-        "description": "Система для реализации моделей ИИ и анализа данных.",
-        "key": "ai_ml",
-        "image": "/images/ai_ml.png"
+        "title": "Чат-бот на основе правил",
+        "description": "Бот, который работает на основе заранее заданных правил.",
+        "key": "rule_based_chatbot",
+        "image": "/images/rule_based_chatbot.png",
+        "next_question_text": "Какова основная цель вашего гибридного чат-бота?"
       },
       {
-        "title": "Кибербезопасность",
-        "description": "Система для мониторинга и защиты данных и инфраструктуры.",
-        "key": "cybersecurity",
-        "image": "/images/cybersecurity.png"
+        "title": "Гибридный чат-бот",
+        "description": "Чат-бот, комбинирующий возможности ИИ и правил.",
+        "key": "hybrid_chatbot",
+        "image": "/images/hybrid_chatbot.png",
+        "next_question_text": "Какова основная цель вашего гибридного чат-бота?"
+      }
+    ]
+  },
+  {
+    "key": ["web_development", "real_time_data", "ai_support", "hybrid_chatbot"],
+    "question_text": "Какова основная цель вашего гибридного чат-бота?",
+    "options": [
+      {
+        "title": "Поддержка клиентов",
+        "description": "Используется для обработки запросов клиентов.",
+        "key": "customer_support",
+        "image": "/images/customer_support.png",
+        "next_question_text": "Каков ваш бюджет для реализации гибридного чат-бота?"
       },
       {
-        "title": "Интернет вещей (IoT)",
-        "description": "Система для управления устройствами и сенсорами IoT.",
-        "key": "iot",
-        "image": "/images/iot.png"
+        "title": "Помощь в продажах",
+        "description": "Автоматизация процессов продаж и генерации лидов.",
+        "key": "sales_assistance",
+        "image": "/images/sales_assistance.png",
+        "next_question_text": "Каков ваш бюджет для реализации гибридного чат-бота?"
       }
     ]
   }
