@@ -1,6 +1,6 @@
 ```mermaid
 %%{init: {"themeVariables": {"fontFamily": "Arial, sans-serif"}}}%%
-graph LR;
+graph TD;
     Q6["What is your budget for implementing the Hybrid Chatbot?"] --> O51["Low Cost"]; %% Низкая стоимость
     Q6 --> O52["Moderate Cost"]; %% Средняя стоимость
     Q6 --> O53["High Cost"]; %% Высокая стоимость
