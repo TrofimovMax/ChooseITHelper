@@ -54,6 +54,7 @@
   { "name": "DASL" },
   { "name": "DIBOL" },
   { "name": "Fortran" },
+  { "name": "Golang" },
   { "name": "Java" },
   { "name": "JOVIAL" },
   { "name": "Objective-C" },

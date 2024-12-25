@@ -31,7 +31,21 @@
       },
       {
         "name": "Node.js",
-        "keys": ["api_integration", "real_time_queries", "scalability", "performance_optimization", "task_automation"],
+        "keys": ["api_integration", "real_time_queries", "small_scale",
+          "moderate_scale", "enterprise_scale", "performance_optimization", "task_automation"],
+        "feasibility": 0.94,
+        "novelty": 0.9,
+        "usefulness": 0.96,
+        "smart_score": 0.91,
+        "ahp_score": 0.92
+      },
+      {
+        "name": "Node.js + NestJS",
+        "keys": [
+          "api_integration", "real_time_queries", "small_scale",
+          "moderate_scale", "enterprise_scale", "performance_optimization", "task_automation",
+          "web_development", "real_time_data", "hybrid_chatbot"
+        ],
         "feasibility": 0.94,
         "novelty": 0.9,
         "usefulness": 0.96,
@@ -54,7 +68,8 @@
     "frameworks": [
       {
         "name": "Django",
-        "keys": ["secure_programming", "scalability", "data_processing", "web_development", "business_systems"],
+        "keys": ["secure_programming", "small_scale",
+          "moderate_scale", "enterprise_scale", "data_processing", "web_development", "business_systems"],
         "feasibility": 0.95,
         "novelty": 0.88,
         "usefulness": 0.96,
@@ -72,7 +87,11 @@
       },
       {
         "name": "FastAPI",
-        "keys": ["api_integration", "data_validation", "performance_optimization", "scalability", "web_development"],
+        "keys": [
+          "api_integration", "data_validation", "performance_optimization", "small_scale",
+          "moderate_scale", "enterprise_scale", "web_development",
+          "real_time_data", "ai_support", "hybrid_chatbot", "customer_support"
+        ],
         "feasibility": 0.94,
         "novelty": 0.92,
         "usefulness": 0.95,
@@ -90,7 +109,8 @@
       },
       {
         "name": "Tornado",
-        "keys": ["real_time_queries", "scalability", "api_integration", "performance_optimization", "task_automation"],
+        "keys": ["real_time_queries", "small_scale",
+          "moderate_scale", "enterprise_scale", "api_integration", "performance_optimization", "task_automation"],
         "feasibility": 0.92,
         "novelty": 0.87,
         "usefulness": 0.94,
@@ -931,7 +951,8 @@
           "business_systems",
           "database_management",
           "high_performance",
-          "scalability",
+          "small_scale",
+          "moderate_scale", "enterprise_scale",
           "cloud_support"
         ],
         "smart_score": 0.91,
@@ -946,8 +967,10 @@
           "healthcare",
           "data_processing",
           "enterprise_systems",
-          "security",
-          "scalability"
+          "basic_security",
+          "standard_security",
+          "advanced_security",
+          "moderate_scale", "enterprise_scale", "enterprise_support"
         ],
         "smart_score": 0.89,
         "ahp_score": 0.9
@@ -962,7 +985,7 @@
           "transaction_processing",
           "high_performance",
           "open_source",
-          "scalability"
+          "moderate_scale", "enterprise_scale", "enterprise_support"
         ],
         "smart_score": 0.9,
         "ahp_score": 0.91
@@ -1662,7 +1685,7 @@
           "fault_tolerance",
           "concurrent_programming",
           "message_passing",
-          "scalability"
+          "moderate_scale", "enterprise_scale", "enterprise_support"
         ],
         "smart_score": 0.9,
         "ahp_score": 0.91
@@ -1689,7 +1712,8 @@
         "usefulness": 0.93,
         "keys": [
           "web_development",
-          "scalability",
+          "small_scale",
+          "moderate_scale", "enterprise_scale",
           "real_time",
           "fault_tolerance",
           "database_management"
@@ -1777,7 +1801,7 @@
           "full_stack",
           "type_safety",
           "high_performance",
-          "scalability"
+          "moderate_scale", "enterprise_scale", "enterprise_support"
         ],
         "smart_score": 0.89,
         "ahp_score": 0.9
@@ -2076,7 +2100,8 @@
           "business_systems",
           "rule_engine",
           "data_processing",
-          "scalability",
+          "small_scale",
+          "moderate_scale", "enterprise_scale",
           "integration_support"
         ],
         "smart_score": 0.9,
@@ -2392,7 +2417,7 @@
           "enterprise_support",
           "modular_design",
           "performance_optimization",
-          "scalability"
+          "moderate_scale", "enterprise_scale", "enterprise_support"
         ],
         "smart_score": 0.91,
         "ahp_score": 0.92
@@ -2506,7 +2531,8 @@
           "business_systems",
           "legacy_support",
           "database_management",
-          "scalability",
+          "small_scale",
+          "moderate_scale", "enterprise_scale",
           "batch_processing"
         ],
         "smart_score": 0.91,
@@ -2590,7 +2616,8 @@
         "keys": [
           "web_development",
           "api_integration",
-          "scalability",
+          "small_scale",
+          "moderate_scale", "enterprise_scale",
           "cross_platform",
           "real_time"
         ],
@@ -2611,7 +2638,8 @@
           "data_science",
           "data_flow",
           "performance_optimization",
-          "scalability",
+          "small_scale",
+          "moderate_scale", "enterprise_scale",
           "integration_support"
         ],
         "smart_score": 0.91,
@@ -2656,7 +2684,8 @@
           "data_science",
           "data_transformation",
           "integration_support",
-          "scalability",
+          "small_scale",
+          "moderate_scale", "enterprise_scale",
           "task_automation"
         ],
         "smart_score": 0.87,
@@ -2735,6 +2764,34 @@
     ]
   },
   {
+    "language": "Golang",
+    "frameworks": [
+      {
+        "name": "Gin",
+        "feasibility": 0.93,
+        "novelty": 0.85,
+        "usefulness": 0.95,
+        "keys": [
+            "web_development",
+            "modular_design",
+            "small_scale",
+            "moderate_scale",
+            "enterprise_scale",
+            "enterprise_support",
+            "basic_security",
+            "standard_security",
+            "advanced_security",
+            "real_time_data",
+            "ai_support",
+            "hybrid_chatbot",
+            "customer_support"
+        ],
+        "smart_score": 0.92,
+        "ahp_score": 0.93
+      }
+    ]
+  },
+  {
     "language": "Java",
     "frameworks": [
       {
@@ -2745,9 +2802,13 @@
         "keys": [
           "web_development",
           "modular_design",
-          "scalability",
-          "enterprise_support",
-          "security"
+          "small_scale",
+          "moderate_scale", "enterprise_scale", "enterprise_support",
+          "basic_security", "standard_security", "advanced_security",
+          "real_time_data",
+          "ai_support",
+          "hybrid_chatbot",
+          "customer_support"
         ],
         "smart_score": 0.92,
         "ahp_score": 0.93
@@ -2817,7 +2878,7 @@
           "data_management",
           "performance_optimization",
           "modular_design",
-          "scalability"
+          "moderate_scale", "enterprise_scale", "enterprise_support"
         ],
         "smart_score": 0.89,
         "ahp_score": 0.9
@@ -2885,7 +2946,8 @@
         "keys": [
           "business_systems",
           "database_management",
-          "scalability",
+          "small_scale",
+          "moderate_scale", "enterprise_scale",
           "performance_optimization",
           "enterprise_support"
         ],
@@ -4059,7 +4121,8 @@
     "frameworks": [
       {
         "name": "PostgreSQL",
-        "keys": ["data_processing", "transactional_support", "data_integrity", "scalability", "data_analytics"],
+        "keys": ["data_processing", "transactional_support", "data_integrity", "small_scale",
+          "moderate_scale", "enterprise_scale", "data_analytics"],
         "feasibility": 0.9,
         "novelty": 0.8,
         "usefulness": 0.95,
@@ -4086,7 +4149,8 @@
       },
       {
         "name": "Microsoft SQL Server",
-        "keys": ["enterprise_systems", "data_warehousing", "transactional_support", "security", "data_integrity"],
+        "keys": ["enterprise_systems", "data_warehousing", "transactional_support", "basic_security",
+          "standard_security", "advanced_security", "data_integrity"],
         "feasibility": 0.9,
         "novelty": 0.8,
         "usefulness": 0.95,
@@ -4095,7 +4159,7 @@
       },
       {
         "name": "Oracle",
-        "keys": ["enterprise_systems", "data_security", "multi_tenancy", "transactional_support", "scalability"],
+        "keys": ["enterprise_systems", "data_security", "multi_tenancy", "transactional_support", "moderate_scale", "enterprise_scale", "enterprise_support"],
         "feasibility": 0.92,
         "novelty": 0.78,
         "usefulness": 0.96,
@@ -4140,7 +4204,8 @@
       },
       {
         "name": "CockroachDB",
-        "keys": ["distributed_systems", "geo_replication", "high_availability", "scalability", "transactional_support"],
+        "keys": ["distributed_systems", "geo_replication", "high_availability", "small_scale",
+          "moderate_scale", "enterprise_scale", "transactional_support"],
         "feasibility": 0.9,
         "novelty": 0.88,
         "usefulness": 0.92,
@@ -4158,7 +4223,8 @@
       },
       {
         "name": "Greenplum",
-        "keys": ["massive_parallel_processing", "data_warehousing", "analytics", "scalability", "big_data"],
+        "keys": ["massive_parallel_processing", "data_warehousing", "analytics", "small_scale",
+          "moderate_scale", "enterprise_scale", "big_data"],
         "feasibility": 0.9,
         "novelty": 0.85,
         "usefulness": 0.93,
@@ -4176,7 +4242,7 @@
       },
       {
         "name": "Teradata",
-        "keys": ["data_warehousing", "big_data", "analytics", "massive_parallel_processing", "scalability"],
+        "keys": ["data_warehousing", "big_data", "analytics", "massive_parallel_processing", "moderate_scale", "enterprise_scale", "enterprise_support"],
         "feasibility": 0.9,
         "novelty": 0.83,
         "usefulness": 0.91,
@@ -4194,7 +4260,8 @@
       },
       {
         "name": "VoltDB",
-        "keys": ["in_memory_processing", "real_time_queries", "low_latency", "scalability", "transactional_support"],
+        "keys": ["in_memory_processing", "real_time_queries", "low_latency", "small_scale",
+          "moderate_scale", "enterprise_scale", "transactional_support"],
         "feasibility": 0.9,
         "novelty": 0.87,
         "usefulness": 0.93,
@@ -4203,7 +4270,8 @@
       },
       {
         "name": "TiDB",
-        "keys": ["distributed_systems", "geo_replication", "scalability", "big_data", "transactional_support"],
+        "keys": ["distributed_systems", "geo_replication", "small_scale",
+          "moderate_scale", "enterprise_scale", "big_data", "transactional_support"],
         "feasibility": 0.88,
         "novelty": 0.85,
         "usefulness": 0.92,
@@ -4212,7 +4280,7 @@
       },
       {
         "name": "Netezza",
-        "keys": ["data_warehousing", "big_data", "analytics", "real_time_queries", "scalability"],
+        "keys": ["data_warehousing", "big_data", "analytics", "real_time_queries", "moderate_scale", "enterprise_scale", "enterprise_support"],
         "feasibility": 0.87,
         "novelty": 0.82,
         "usefulness": 0.9,
@@ -4221,7 +4289,8 @@
       },
       {
         "name": "SQL Azure",
-        "keys": ["cloud_native", "high_availability", "scalability", "multi_tenancy", "data_integrity"],
+        "keys": ["cloud_native", "high_availability", "small_scale",
+          "moderate_scale", "enterprise_scale", "multi_tenancy", "data_integrity"],
         "feasibility": 0.88,
         "novelty": 0.85,
         "usefulness": 0.92,
@@ -4235,7 +4304,8 @@
     "frameworks": [
       {
         "name": "MongoDB",
-        "keys": ["document_processing", "data_processing", "scalability", "flexible_schema", "big_data"],
+        "keys": ["document_processing", "data_processing", "small_scale",
+          "moderate_scale", "enterprise_scale", "flexible_schema", "big_data"],
         "feasibility": 0.85,
         "novelty": 0.9,
         "usefulness": 0.95,
@@ -4262,7 +4332,8 @@
       },
       {
         "name": "CouchDB",
-        "keys": ["document_processing", "scalability", "distributed_systems", "data_processing", "flexible_schema"],
+        "keys": ["document_processing", "small_scale",
+          "moderate_scale", "enterprise_scale", "distributed_systems", "data_processing", "flexible_schema"],
         "feasibility": 0.84,
         "novelty": 0.8,
         "usefulness": 0.88,
@@ -4280,7 +4351,8 @@
       },
       {
         "name": "Google Cloud Firestore",
-        "keys": ["cloud_native", "real_time_queries", "scalability", "data_processing", "document_processing"],
+        "keys": ["cloud_native", "real_time_queries", "small_scale",
+          "moderate_scale", "enterprise_scale", "data_processing", "document_processing"],
         "feasibility": 0.9,
         "novelty": 0.85,
         "usefulness": 0.92,
@@ -4307,7 +4379,8 @@
       },
       {
         "name": "ArangoDB",
-        "keys": ["multi_model", "document_processing", "graph_processing", "scalability", "data_processing"],
+        "keys": ["multi_model", "document_processing", "graph_processing", "small_scale",
+          "moderate_scale", "enterprise_scale", "data_processing"],
         "feasibility": 0.87,
         "novelty": 0.88,
         "usefulness": 0.9,
@@ -4316,7 +4389,7 @@
       },
       {
         "name": "OrientDB",
-        "keys": ["graph_processing", "multi_model", "analytics", "data_processing", "scalability"],
+        "keys": ["graph_processing", "multi_model", "analytics", "data_processing", "moderate_scale", "enterprise_scale", "enterprise_support"],
         "feasibility": 0.85,
         "novelty": 0.83,
         "usefulness": 0.88,
@@ -4325,7 +4398,7 @@
       },
       {
         "name": "Couchbase",
-        "keys": ["document_processing", "real_time_queries", "data_caching", "distributed_systems", "scalability"],
+        "keys": ["document_processing", "real_time_queries", "data_caching", "distributed_systems", "moderate_scale", "enterprise_scale", "enterprise_support"],
         "feasibility": 0.86,
         "novelty": 0.84,
         "usefulness": 0.9,
@@ -4334,7 +4407,8 @@
       },
       {
         "name": "ScyllaDB",
-        "keys": ["low_latency", "distributed_systems", "write_heavy", "scalability", "data_processing"],
+        "keys": ["low_latency", "distributed_systems", "write_heavy", "small_scale",
+          "moderate_scale", "enterprise_scale", "data_processing"],
         "feasibility": 0.89,
         "novelty": 0.88,
         "usefulness": 0.91,
@@ -4352,7 +4426,7 @@
       },
       {
         "name": "Elasticsearch",
-        "keys": ["data_analytics", "text_search", "big_data", "real_time_queries", "scalability"],
+        "keys": ["data_analytics", "text_search", "big_data", "real_time_queries", "moderate_scale", "enterprise_scale", "enterprise_support"],
         "feasibility": 0.87,
         "novelty": 0.89,
         "usefulness": 0.94,

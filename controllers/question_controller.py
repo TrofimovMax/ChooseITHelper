@@ -20,7 +20,6 @@ def get_question(
     Fetch a question based on the provided filters or next_question_id.
     If next_question_id is provided, it takes precedence over filters.
     """
-    keys = filters.split(",")
     if next_question_id is not None:
         question = fetch_question_by_id(next_question_id, db)
         if question:
@@ -31,6 +30,7 @@ def get_question(
             status_code=400, detail="Either filters or next_question_id must be provided"
         )
 
+    keys = filters.split(",")
     question, missing_keys = fetch_question_by_filters(keys, db)
 
     if missing_keys:

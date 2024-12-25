@@ -1,24 +1,48 @@
-from fastapi import APIRouter, HTTPException, Depends
+# controllers/calculate_evaluations.py
+
+from fastapi import APIRouter, HTTPException, Depends, BackgroundTasks
 from sqlalchemy.orm import Session
 from database import get_db
 from models.result import Result
-from models.question_key import QuestionKey
+from models.key import Key
 from services.create_results_for_keys import create_results_for_keys
+from pydantic import BaseModel
+from typing import List
 
 router = APIRouter()
 
 
+class EvaluationRequest(BaseModel):
+    query_keys: List[str]
+
+
 @router.post("/calculate_evaluations")
-def calculate_evaluations(query_keys: list[str], db: Session = Depends(get_db)):
-    question_keys = db.query(QuestionKey).filter(QuestionKey.key.in_(query_keys)).all()
-    if not question_keys:
+def calculate_evaluations(
+    request: EvaluationRequest,
+    background_tasks: BackgroundTasks,
+    db: Session = Depends(get_db),
+):
+    """
+    Calculate evaluations for the given keys. If results are not found,
+    an asynchronous task is initiated to compute and store the results.
+    """
+    query_keys = request.query_keys
+
+    # Getting the key IDs from the database
+    key_ids = [key_id[0] for key_id in db.query(Key.id).filter(Key.key.in_(query_keys)).all()]
+
+    if not key_ids:
         raise HTTPException(status_code=404, detail="Keys not found")
 
-    results = db.query(Result).filter(Result.query_keys.contains(query_keys)).all()
+    # Checking if there are already results for these keys.
+    result_id = db.query(Result.id).filter(Result.query_keys.contains(query_keys)).limit(1).first()
 
-    if not results:
-        create_results_for_keys(query_keys)
-
+    if not result_id:
+        # Running a background task for the calculation
+        background_tasks.add_task(create_results_for_keys, query_keys)
         return {"message": "The results will be prepared soon"}
 
-    return {"results": results}
+    # Returning already existing results
+    return {
+        "result_id": result_id[0]
+    }

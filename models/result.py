@@ -10,7 +10,7 @@ from models.base import Base
 class Result(Base):
     __tablename__ = "results"
 
-    result_id = Column(Integer, primary_key=True, index=True)
+    id = Column(Integer, primary_key=True, index=True)
     user_id = Column(Integer, ForeignKey("users.user_id"), nullable=False)
 
     query_keys = Column(JSONB, nullable=False)

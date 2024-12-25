@@ -1,10 +1,10 @@
-def calculate_feasibility(framework, key):
-    return 0.9  # Dummy score
+# services/calculate_adaptive_weighted_method.py
 
-
-def calculate_novelty(framework, key):
-    return 0.6  # Dummy score
-
-
-def calculate_usefulness(framework, key):
-    return 0.85  # Dummy score
+def calculate_adaptive_weighted_method():
+    return [
+        {
+            "name": "Framework1",
+            "language_name": "Python",
+            "awm_score": 0.78
+        }
+    ]
