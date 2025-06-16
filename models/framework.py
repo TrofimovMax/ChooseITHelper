@@ -17,3 +17,7 @@ class Framework(Base):
     usefulness = Column(Float, nullable=True)
 
     keys = relationship("FrameworkKey", back_populates="framework")
+
+    def __repr__(self):
+        return f"<Framework framework_id={self.framework_id} name={self.name} language_id={self.language_id}, " \
+                f"feasibility={self.feasibility} novelty={self.novelty} usefulness={self.usefulness}> "

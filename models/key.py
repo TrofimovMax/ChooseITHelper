@@ -15,3 +15,6 @@ class Key(Base):
 
     frameworks = relationship("FrameworkKey", back_populates="key")
     question_keys = relationship("QuestionKey", back_populates="key")
+
+    def __repr__(self):
+        return f"<Key id={self.id} key={self.key} is_criterion={self.is_criterion}>"

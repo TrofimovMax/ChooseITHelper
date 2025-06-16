@@ -16,3 +16,7 @@ class FrameworkKey(Base):
 
     framework = relationship("Framework", back_populates="keys")
     key = relationship("Key", back_populates="frameworks")
+
+    def __repr__(self):
+        return f"<FrameworkKey id={self.id} framework_id={self.framework_id} key_id={self.key_id} " \
+               f"smart_score={self.smart_score} ahp_score={self.ahp_score}> "

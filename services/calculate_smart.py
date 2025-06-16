@@ -1,56 +1,26 @@
 # services/calculate_smart.py
 
-def calculate_smart(frameworks: list[dict], criteria_weights: dict[str, float]) -> list[dict]:
-    """
-    Calculate SMART scores for a list of frameworks based on criteria weights.
+from services.format_results import format_results
+from sqlalchemy.orm import Session
 
-    :param frameworks: List of frameworks with the following structure:
-        [
-            {
-                "name": "Framework1",
-                "language_name": "Python",
-                "criteria_scores": {
-                    "criterion1": 0.8,
-                    "criterion2": 0.7,
-                    ...
-                }
-            },
-            ...
-        ]
-    :param criteria_weights: Dictionary of weights for each criterion:
-        {
-            "criterion1": 0.4,
-            "criterion2": 0.6,
-            ...
-        }
-    :return: List of frameworks with calculated SMART scores, sorted in descending order:
-        [
-            {
-                "name": "Framework1",
-                "language_name": "Python",
-                "smart_score": 0.78
-            },
-            ...
-        ]
+
+def calculate_smart(frameworks: list[dict], criteria_weights: dict[str, float], db: Session, raw_frameworks: list) -> \
+        list[dict]:
     """
-    results = []
+    Calculate SMART scores and return in standardized format.
+    :param frameworks: list of dicts with criteria_scores.
+    :param criteria_weights: dict with weights.
+    :param db: SQLAlchemy session for language name lookup.
+    :param raw_frameworks: original Framework objects for name/language_id mapping.
+    """
+    raw_scores = {}
 
     for framework in frameworks:
         criteria_scores = framework.get("criteria_scores", {})
-
-        # Calculate the weighted sum for the framework
         smart_score = sum(
             criteria_scores.get(criterion, 0) * weight
             for criterion, weight in criteria_weights.items()
         )
+        raw_scores[framework["name"]] = smart_score
 
-        results.append({
-            "name": framework["name"],
-            "language_name": framework["language_name"],
-            "smart_score": smart_score
-        })
-
-    # Sort frameworks by SMART score in descending order
-    results.sort(key=lambda x: x["smart_score"], reverse=True)
-
-    return results
+    return format_results(raw_scores, raw_frameworks, db, method_key="smart_score")

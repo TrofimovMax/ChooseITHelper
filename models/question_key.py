@@ -14,3 +14,6 @@ class QuestionKey(Base):
 
     question = relationship("Question", back_populates="keys")
     key = relationship("Key", back_populates="question_keys")
+
+    def __repr__(self):
+        return f"<QuestionKey id={self.id} question_id={self.question_id} key_id={self.key_id}>"

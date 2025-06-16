@@ -2,30 +2,29 @@
 
 from sqlalchemy import func
 from sqlalchemy.orm import Session
-
 from models import FrameworkKey
 
 
-def prepare_matrix_parameters(frameworks: list[int], alternatives: list[int], criteria: list[int], db: Session):
+def prepare_matrix_parameters(framework_ids: list[int], alternatives: list[int], criteria: list[int], db: Session):
     """
-    Prepare parameters for SMART calculation.
+    Prepare parameters for SMART calculation using smart_score.
     """
     matrix = []
-    for framework_id in frameworks:
-        matrix_alt_score = db.query(func.sum(FrameworkKey.weight)).filter(
+    for framework_id in framework_ids:
+        alt_score = db.query(func.sum(FrameworkKey.smart_score)).filter(
             FrameworkKey.framework_id == framework_id,
             FrameworkKey.key_id.in_(alternatives),
-        ).scalar()
-        matrix_crit_score = db.query(func.sum(FrameworkKey.weight)).filter(
+        ).scalar() or 0.0
+
+        crit_score = db.query(func.sum(FrameworkKey.smart_score)).filter(
             FrameworkKey.framework_id == framework_id,
             FrameworkKey.key_id.in_(criteria),
-        ).scalar()
+        ).scalar() or 0.0
+
         matrix.append({
             "framework_id": framework_id,
-            "alt_score": matrix_alt_score or 0.0,
-            "crit_score": matrix_crit_score or 0.0,
+            "alt_score": alt_score,
+            "crit_score": crit_score,
         })
-
-        matrix_crit_score
 
     return matrix

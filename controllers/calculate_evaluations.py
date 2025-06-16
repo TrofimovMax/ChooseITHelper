@@ -36,10 +36,10 @@ def calculate_evaluations(
 
     # Checking if there are already results for these keys.
     result_id = db.query(Result.id).filter(Result.query_keys.contains(query_keys)).limit(1).first()
-
     if not result_id:
         # Running a background task for the calculation
-        background_tasks.add_task(create_results_for_keys, query_keys)
+        # TODO: Replace hardcoded user_id when auth is ready
+        background_tasks.add_task(create_results_for_keys, query_keys, 1)
         return {"message": "The results will be prepared soon"}
 
     # Returning already existing results

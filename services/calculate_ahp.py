@@ -1,44 +1,33 @@
 # services/calculate_ahp.py
 
+from services.format_results import format_results
+from sqlalchemy.orm import Session
 from typing import List, Dict
 import numpy as np
 
 
-def calculate_ahp(frameworks: List[Dict[str, any]]) -> Dict[str, float]:
+def calculate_ahp(frameworks: List[Dict], criteria_weights: Dict[str, float], db: Session, raw_frameworks: list) -> \
+        List[dict]:
     """
-    Calculate AHP scores for a list of frameworks based on their criteria scores.
-
-    :param frameworks: List of frameworks with criteria scores in the form:
-                       [
-                           {
-                               "name": "Framework 1",
-                               "language_name": "Python",
-                               "ahp_score": 10.5
-                           },
-                           ...
-                       ]
-    :return: Dictionary with framework names as keys and their final AHP scores as values.
+    Calculate AHP scores using pairwise comparisons and return standardized format.
     """
-    # Extract AHP scores into a matrix
-    scores = [framework['ahp_score'] for framework in frameworks]
-    num_frameworks = len(scores)
+    framework_names = [fw["name"] for fw in frameworks]
+    num_frameworks = len(frameworks)
+    cumulative_scores = {name: 0.0 for name in framework_names}
 
-    # Create pairwise comparison matrix
-    pairwise_matrix = np.zeros((num_frameworks, num_frameworks))
-    for i in range(num_frameworks):
-        for j in range(num_frameworks):
-            pairwise_matrix[i][j] = scores[i] / scores[j] if scores[j] != 0 else 0
+    for criterion, weight in criteria_weights.items():
+        scores = [fw["criteria_scores"].get(criterion, 0.0) for fw in frameworks]
 
-    # Normalize the pairwise matrix
-    column_sums = pairwise_matrix.sum(axis=0)
-    normalized_matrix = pairwise_matrix / column_sums
+        comparison_matrix = np.zeros((num_frameworks, num_frameworks))
+        for i in range(num_frameworks):
+            for j in range(num_frameworks):
+                denominator = scores[j] if scores[j] != 0 else 1e-6
+                comparison_matrix[i][j] = scores[i] / denominator
 
-    # Calculate priority vector (average of rows)
-    priority_vector = normalized_matrix.mean(axis=1)
+        normalized_matrix = comparison_matrix / comparison_matrix.sum(axis=0)
+        priority_vector = normalized_matrix.mean(axis=1)
 
-    # Map priority vector back to framework names
-    ahp_results = {
-        frameworks[i]['name']: priority_vector[i] for i in range(num_frameworks)
-    }
+        for i, name in enumerate(framework_names):
+            cumulative_scores[name] += weight * priority_vector[i]
 
-    return ahp_results
+    return format_results(cumulative_scores, raw_frameworks, db, method_key="ahp_score")
