@@ -27,18 +27,22 @@ def calculate_evaluations(
     an asynchronous task is initiated to compute and store the results.
     """
     query_keys = request.query_keys
+    print(query_keys)
 
     # Getting the key IDs from the database
     key_ids = [key_id[0] for key_id in db.query(Key.id).filter(Key.key.in_(query_keys)).all()]
+    print(key_ids)
 
     if not key_ids:
         raise HTTPException(status_code=404, detail="Keys not found")
 
     # Checking if there are already results for these keys.
     result_id = db.query(Result.id).filter(Result.query_keys.contains(query_keys)).limit(1).first()
+    print(result_id)
     if not result_id:
         # Running a background task for the calculation
         # TODO: Replace hardcoded user_id when auth is ready
+        print("call create_results_for_keys", query_keys, ", ", 1)
         background_tasks.add_task(create_results_for_keys, query_keys, 1)
         return {"message": "The results will be prepared soon"}
 

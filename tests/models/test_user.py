@@ -1,9 +1,5 @@
 # tests/models/test_user.py
 
-# run test with
-# $env:PYTHONPATH="."
-# $env:ENV_FILE=".env.test"; pytest tests/models/test_user.py
-
 import pytest
 from models.user import User
 from models.team import Team

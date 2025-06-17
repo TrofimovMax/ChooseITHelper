@@ -1,4 +1,5 @@
 # tests/conftest.py
+# run test pytest -s tests path
 
 import pytest
 import models
@@ -9,9 +10,9 @@ from sqlalchemy.orm import sessionmaker
 
 from database import Base, get_db
 from routes import init_routes
-from config import TEST_DATABASE_URL
+from config import DATABASE_URL
 
-engine = create_engine(TEST_DATABASE_URL)
+engine = create_engine(DATABASE_URL)
 TestingSessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 
