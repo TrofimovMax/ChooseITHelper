@@ -1,0 +1,44 @@
+[
+  {
+    "framework_title": "Express",
+    "language_name": "JavaScript",
+    "title": "LinkedIn Vacancies",
+    "rank": 484,
+    "total": 848000
+  },
+  {
+    "framework_title": "Node.js + NestJS",
+    "language_name": "JavaScript",
+    "title": "LinkedIn Vacancies",
+    "rank": 153000,
+    "total": 848000
+  },
+  {
+    "framework_title": "FastAPI",
+    "language_name": "Python",
+    "title": "LinkedIn Vacancies",
+    "rank": 152000,
+    "total": 152000
+  },
+  {
+    "framework_title": "Gin",
+    "language_name": "Golang",
+    "title": "LinkedIn Vacancies",
+    "rank": 29000,
+    "total": 29000
+  },
+  {
+    "framework_title": "ASP.NET",
+    "language_name": "C#",
+    "title": "LinkedIn Vacancies",
+    "rank": 7000,
+    "total": 7000
+  },
+  {
+    "framework_title": "React + Firebase",
+    "language_name": "JavaScript",
+    "title": "LinkedIn Vacancies",
+    "rank": 128000,
+    "total": 848000
+  }
+]

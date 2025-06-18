@@ -871,18 +871,33 @@
     "frameworks": [
       {
         "name": "ASP.NET",
-        "feasibility": 0.92,
-        "novelty": 0.86,
-        "usefulness": 0.94,
+        "feasibility": 0.75,
+        "novelty": 0.40,
+        "usefulness": 0.70,
         "keys": [
           "web_development",
-          "enterprise_support",
+          "customer_support",
+          "data_security",
+          "standard_security",
+          "cloud_integration",
+          "admin_panel",
+          "api_integration",
+          "moderate_cost",
+          "basic_customization",
+          "moderate_scale",
+          "event_driven",
+          "database_management",
+          "http_server",
+          "reusability",
           "modular_design",
-          "performance_optimization",
-          "moderate_scale", "enterprise_scale", "enterprise_support"
+          "enterprise_support",
+          "windows_integration",
+          "beginner_friendly",
+          "component_based",
+          "system_integration"
         ],
-        "smart_score": 0.91,
-        "ahp_score": 0.92
+        "smart_score": 0.65,
+        "ahp_score": 0.68
       },
       {
         "name": "Blazor",
@@ -1230,26 +1245,31 @@
     "frameworks": [
       {
         "name": "Gin",
-        "feasibility": 0.93,
-        "novelty": 0.85,
-        "usefulness": 0.95,
+        "feasibility": 0.72,
+        "novelty": 0.68,
+        "usefulness": 0.60,
         "keys": [
-            "web_development",
-            "modular_design",
-            "small_scale",
-            "moderate_scale",
-            "enterprise_scale",
-            "enterprise_support",
-            "basic_security",
-            "standard_security",
-            "advanced_security",
-            "real_time_data",
-            "ai_support",
-            "hybrid_chatbot",
-            "customer_support"
+          "web_development",
+          "http_server",
+          "api_integration",
+          "standard_security",
+          "moderate_scale",
+          "low_priority",
+          "modular_design",
+          "lightweight",
+          "high_performance",
+          "cloud_native",
+          "auto_scaling",
+          "low_cost",
+          "basic_customization",
+          "reusability",
+          "event_driven",
+          "data_transfer",
+          "concurrent_programming",
+          "fault_tolerance"
         ],
-        "smart_score": 0.92,
-        "ahp_score": 0.93
+        "smart_score": 0.61,
+        "ahp_score": 0.65
       }
     ]
   },

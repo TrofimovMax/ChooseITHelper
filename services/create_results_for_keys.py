@@ -46,9 +46,6 @@ def create_results_for_keys(query_keys: list[str], user_id: int):
 
         awm_results = calculate_adaptive_weighted_method()
 
-        print(smart_results)
-        print(ahp_results)
-        print(awm_results)
         # Store the results in the database
         new_result = Result(
             user_id=user_id,

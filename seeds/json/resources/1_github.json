@@ -1,0 +1,44 @@
+[
+  {
+    "framework_title": "Express",
+    "language_name": "JavaScript",
+    "title": "GitHub Stars",
+    "rank": 67200,
+    "total": 89000
+  },
+  {
+    "framework_title": "Node.js + NestJS",
+    "language_name": "JavaScript",
+    "title": "GitHub Stars",
+    "rank": 71400,
+    "total": 89000
+  },
+  {
+    "framework_title": "FastAPI",
+    "language_name": "Python",
+    "title": "GitHub Stars",
+    "rank": 84000,
+    "total": 89000
+  },
+  {
+    "framework_title": "Gin",
+    "language_name": "Golang",
+    "title": "GitHub Stars",
+    "rank": 82800,
+    "total": 89000
+  },
+  {
+    "framework_title": "ASP.NET",
+    "language_name": "C#",
+    "title": "GitHub Stars",
+    "rank": 21500,
+    "total": 89000
+  },
+  {
+    "framework_title": "React + Firebase",
+    "language_name": "JavaScript",
+    "title": "GitHub Stars",
+    "rank": 49500,
+    "total": 89000
+  }
+]

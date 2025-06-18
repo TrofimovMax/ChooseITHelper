@@ -1,0 +1,44 @@
+[
+  {
+    "framework_title": "Express",
+    "language_name": "JavaScript",
+    "title": "StackOverflow Questions",
+    "rank": 600000,
+    "total": 2000000
+  },
+  {
+    "framework_title": "Node.js + NestJS",
+    "language_name": "JavaScript",
+    "title": "StackOverflow Questions",
+    "rank": 150000,
+    "total": 2000000
+  },
+  {
+    "framework_title": "FastAPI",
+    "language_name": "Python",
+    "title": "StackOverflow Questions",
+    "rank": 70000,
+    "total": 3000000
+  },
+  {
+    "framework_title": "Gin",
+    "language_name": "Golang",
+    "title": "StackOverflow Questions",
+    "rank": 25000,
+    "total": 400000
+  },
+  {
+    "framework_title": "ASP.NET",
+    "language_name": "C#",
+    "title": "StackOverflow Questions",
+    "rank": 200000,
+    "total": 1800000
+  },
+  {
+    "framework_title": "React + Firebase",
+    "language_name": "JavaScript",
+    "title": "StackOverflow Questions",
+    "rank": 300000,
+    "total": 2000000
+  }
+]

@@ -1,0 +1,44 @@
+[
+  {
+    "framework_title": "Express",
+    "language_name": "JavaScript",
+    "title": "Indeed Vacancies",
+    "rank": 502,
+    "total": 28167
+  },
+  {
+    "framework_title": "Node.js + NestJS",
+    "language_name": "JavaScript",
+    "title": "Indeed Vacancies",
+    "rank": 8337,
+    "total": 28167
+  },
+  {
+    "framework_title": "FastAPI",
+    "language_name": "Python",
+    "title": "Indeed Vacancies",
+    "rank": 556,
+    "total": 69684
+  },
+  {
+    "framework_title": "Gin",
+    "language_name": "Golang",
+    "title": "Indeed Vacancies",
+    "rank": 1722,
+    "total": 1829
+  },
+  {
+    "framework_title": "ASP.NET",
+    "language_name": "C#",
+    "title": "Indeed Vacancies",
+    "rank": 1000,
+    "total": 13984
+  },
+  {
+    "framework_title": "React + Firebase",
+    "language_name": "JavaScript",
+    "title": "Indeed Vacancies",
+    "rank": 14330,
+    "total": 28167
+  }
+]

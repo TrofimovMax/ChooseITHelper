@@ -13,6 +13,8 @@ from database import SessionLocal
 from seeds.questions import seed_questions
 from seeds.options import seed_options
 from seeds.technologies_frameworks import seed_languages, seed_frameworks
+from seeds.resources import seed_resources
+from seeds.users import seed_admin_user
 
 
 def find_json_files(directory: str) -> list[str]:
@@ -48,6 +50,15 @@ def run_seeding():
         for f_file in frameworks_files:
             print(f"📥 Seeding frameworks from: {f_file}")
             seed_frameworks(f_file)
+
+        # resources
+        resources_files = find_json_files("seeds/json/resources")
+        for r_file in resources_files:
+            print(f"📥 Seeding resources from: {r_file}")
+            seed_resources(r_file, db)
+
+        # users
+        seed_admin_user(db)
 
         db.commit()
         print("✅ Seeding completed successfully.")
