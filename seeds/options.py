@@ -10,7 +10,7 @@ project_root = os.path.abspath(os.path.join(current_dir, ".."))
 sys.path.append(project_root)
 
 from database import SessionLocal
-from models import Option, Question
+from models import Option, Question, Key
 from services.question_service import fetch_question_by_filters
 
 
@@ -32,14 +32,23 @@ def seed_options(options_file: str):
                 else:
                     print(f"⚠️ Question not found: '{option_data['question_text']}'. Skipping block.")
                     continue
-            else:
-                matching_question, missing_keys = fetch_question_by_filters(option_data["key"], db)
+            elif "filter_keys" in option_data:
+                matching_question, missing_keys = fetch_question_by_filters(option_data["filter_keys"], db)
                 if missing_keys or matching_question is None:
-                    print(f"⚠️ No matching question for keys: {option_data['key']}. Skipping.")
+                    print(f"⚠️ No matching question for keys: {option_data['filter_keys']}. Skipping.")
                     continue
                 question_id = matching_question["id"]
+            else:
+                print(f"⚠️ No 'question_text' or 'filter_keys' found in: {option_data}. Skipping.")
+                continue
 
             for opt in option_data["options"]:
+                key = db.query(Key).filter(Key.title == opt["key"]).first()
+                if not key:
+                    key = Key(title=opt["key"], is_criterion=opt.get("is_criterion", False))
+                    db.add(key)
+                    db.flush()
+                    print(f"➕ Added new key: {opt['key']} (is_criterion={opt.get('is_criterion', False)})")
                 next_question_id = None
                 if "next_question_text" in opt:
                     next_q = db.query(Question).filter(Question.title == opt["next_question_text"]).first()

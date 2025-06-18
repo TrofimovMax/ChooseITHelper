@@ -14,7 +14,7 @@ def fetch_question_by_filters(keys: list[str], db: Session):
     If keys are missing from the database, return the missing keys.
     """
     # Check if the provided keys exist in the database
-    existing_keys = db.query(Key.key).filter(Key.key.in_(keys)).all()
+    existing_keys = db.query(Key.title).filter(Key.title.in_(keys)).all()
     existing_key_names = {k[0] for k in existing_keys}
 
     missing_keys = set(keys) - existing_key_names
@@ -22,7 +22,7 @@ def fetch_question_by_filters(keys: list[str], db: Session):
         return None, missing_keys  # Return missing keys if any
 
     # Retrieve IDs of the keys in the same order as `keys`
-    key_id_map = {key.key: key.id for key in db.query(Key).filter(Key.key.in_(keys)).all()}
+    key_id_map = {key.title: key.id for key in db.query(Key).filter(Key.title.in_(keys)).all()}
     key_ids = [key_id_map[key] for key in keys if key in key_id_map]
 
     subquery = (
@@ -30,14 +30,12 @@ def fetch_question_by_filters(keys: list[str], db: Session):
         .filter(QuestionKey.key_id.in_(key_ids))
         .group_by(QuestionKey.question_id)
         .having(func.count(QuestionKey.key_id) == len(key_ids))
-        .having(func.count(QuestionKey.key_id) == db.query(func.count(QuestionKey.key_id))
-                .filter(QuestionKey.question_id == QuestionKey.question_id)
-                .correlate(QuestionKey))
+        .having(func.count(QuestionKey.key_id) == db.query(func.count(QuestionKey.key_id)).scalar_subquery())
         .order_by(QuestionKey.question_id.asc())
         .limit(1)
     ).subquery()
 
-    question = db.query(Question).filter(Question.question_id.in_(subquery)).first()
+    question = db.query(Question).filter(Question.id.in_(subquery)).first()
 
     if not question:
         return None, None

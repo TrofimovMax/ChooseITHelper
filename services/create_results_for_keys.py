@@ -20,7 +20,7 @@ def create_results_for_keys(query_keys: list[str], user_id: int):
     db: Session = SessionLocal()
     try:
         # Fetch key IDs for the query keys
-        keys = db.query(Key.id).filter(Key.key.in_(query_keys)).all()
+        keys = db.query(Key.id).filter(Key.title.in_(query_keys)).all()
         keys_ids = [key.id for key in keys]
 
         if not keys_ids:
@@ -37,22 +37,25 @@ def create_results_for_keys(query_keys: list[str], user_id: int):
 
         smart_input = build_smart_input(top_frameworks, criteria, db)
         criteria_weights = {
-            crit.key: 1 / len(criteria) for crit in criteria
+            crit.title: 1 / len(criteria) for crit in criteria
         }
         smart_results = calculate_smart(smart_input, criteria_weights, db, top_frameworks)
 
         ahp_input = build_ahp_input(top_frameworks, criteria, db)
         ahp_results = calculate_ahp(ahp_input, criteria_weights, db, top_frameworks)
 
-        adaptive_weighted_results = calculate_adaptive_weighted_method()
+        awm_results = calculate_adaptive_weighted_method()
 
+        print(smart_results)
+        print(ahp_results)
+        print(awm_results)
         # Store the results in the database
         new_result = Result(
             user_id=user_id,
             query_keys=query_keys,
             smart_results=smart_results,
             ahp_results=ahp_results,
-            adaptive_weighted_results=adaptive_weighted_results,
+            awm_results=awm_results,
         )
 
         db.add(new_result)

@@ -19,12 +19,12 @@ def build_smart_input(frameworks: list, criteria: list, db: Session):
     }
 
     # Compare id → key
-    id_to_key = {c.id: c.key for c in criteria}
+    id_to_key = {c.id: c.title for c in criteria}
 
     # Getting the names of the languages
     lang_ids = [f.language_id for f in frameworks]
     lang_map = {
-        lang.language_id: lang.title
+        lang.id: lang.title
         for lang in db.query(Language).filter(Language.id.in_(lang_ids)).all()
     }
 
@@ -32,7 +32,7 @@ def build_smart_input(frameworks: list, criteria: list, db: Session):
 
     for fw in frameworks:
         crit_scores = {
-            id_to_key[c.id]: scores_map.get((fw.framework_id, c.id), 0.0)
+            id_to_key[c.id]: scores_map.get((fw.id, c.id), 0.0)
             for c in criteria
         }
         result.append({

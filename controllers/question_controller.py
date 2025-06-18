@@ -33,8 +33,11 @@ def get_question(
     keys = filters.split(",")
     question, missing_keys = fetch_question_by_filters(keys, db)
 
-    if missing_keys:
-        return {"message": "No questions found", "missing_keys": list(missing_keys)}, 404
+    if missing_keys is None:
+        return {
+            "message": "No questions found",
+            "all_keys": keys,
+        }
 
     if not question:
         raise HTTPException(status_code=404, detail=f"No questions found for filters: {filters}")

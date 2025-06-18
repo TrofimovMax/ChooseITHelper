@@ -1,0 +1,22 @@
+[
+  {
+    "filter_keys": ["initial_key"],
+    "question": "Какова основная цель вашего проекта?"
+  },
+  {
+    "filter_keys": ["web_development"],
+    "question": "Какие ключевые функции должны быть в этом приложении?"
+  },
+  {
+    "filter_keys": ["web_development", "real_time_data"],
+    "question": "Какие дополнительные функции вы хотите в чате?"
+  },
+  {
+    "filter_keys": ["web_development", "real_time_data", "ai_support"],
+    "question": "Какой тип функциональности чат-бота вам нужен?"
+  },
+  {
+    "filter_keys": ["web_development", "real_time_data", "ai_support", "hybrid_chatbot"],
+    "question": "Какова основная цель вашего гибридного чат-бота?"
+  }
+]

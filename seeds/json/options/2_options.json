@@ -1,12 +1,13 @@
 [
   {
-    "key": ["web_development", "real_time_data", "ai_support", "hybrid_chatbot"],
+    "filter_keys": ["web_development", "real_time_data", "ai_support", "hybrid_chatbot"],
     "question_text": "Каков ваш бюджет для реализации гибридного чат-бота?",
     "options": [
       {
         "title": "Низкая стоимость",
         "description": "Решение с минимальными затратами.",
         "key": "low_cost",
+        "is_criterion": true,
         "image": "/images/low_cost.png",
         "next_question_text": "Насколько важна безопасность для вашего чат-бота?"
       },
@@ -14,6 +15,7 @@
         "title": "Средняя стоимость",
         "description": "Оптимальное соотношение цены и качества.",
         "key": "moderate_cost",
+        "is_criterion": true,
         "image": "/images/moderate_cost.png",
         "next_question_text": "Насколько важна безопасность для вашего чат-бота?"
       },
@@ -21,19 +23,21 @@
         "title": "Высокая стоимость",
         "description": "Премиальное решение с максимальной производительностью.",
         "key": "high_cost",
+        "is_criterion": true,
         "image": "/images/high_cost.png",
         "next_question_text": "Насколько важна безопасность для вашего чат-бота?"
       }
     ]
   },
   {
-    "key": ["web_development", "real_time_data", "ai_support", "hybrid_chatbot", "low_cost"],
+    "filter_keys": ["web_development", "real_time_data", "ai_support", "hybrid_chatbot", "low_cost"],
     "question_text": "Насколько важна безопасность для вашего чат-бота?",
     "options": [
       {
         "title": "Базовая безопасность",
         "description": "Обеспечение минимального уровня защиты.",
         "key": "basic_security",
+        "is_criterion": true,
         "image": "/images/basic_security.png",
         "next_question_text": "Какой уровень масштабируемости требуется для вашего чат-бота?"
       },
@@ -41,6 +45,7 @@
         "title": "Стандартная безопасность",
         "description": "Решение с оптимальным уровнем защиты данных.",
         "key": "standard_security",
+        "is_criterion": true,
         "image": "/images/standard_security.png",
         "next_question_text": "Какой уровень масштабируемости требуется для вашего чат-бота?"
       },
@@ -48,19 +53,21 @@
         "title": "Продвинутая безопасность",
         "description": "Максимальный уровень защиты данных.",
         "key": "advanced_security",
+        "is_criterion": true,
         "image": "/images/advanced_security.png",
         "next_question_text": "Какой уровень масштабируемости требуется для вашего чат-бота?"
       }
     ]
   },
   {
-    "key": ["web_development", "real_time_data", "ai_support", "hybrid_chatbot", "low_cost", "basic_security"],
+    "filter_keys": ["web_development", "real_time_data", "ai_support", "hybrid_chatbot", "low_cost", "basic_security"],
     "question_text": "Какой уровень масштабируемости требуется для вашего чат-бота?",
     "options": [
       {
         "title": "Малый масштаб",
         "description": "Решение для небольшого количества пользователей.",
         "key": "small_scale",
+        "is_criterion": true,
         "image": "/images/small_scale.png",
         "next_question_text": "Насколько важна интеграция с существующими системами?"
       },
@@ -68,6 +75,7 @@
         "title": "Средний масштаб",
         "description": "Масштабируемое решение для среднего количества пользователей.",
         "key": "moderate_scale",
+        "is_criterion": true,
         "image": "/images/moderate_scale.png",
         "next_question_text": "Насколько важна интеграция с существующими системами?"
       },
@@ -75,19 +83,21 @@
         "title": "Крупный масштаб",
         "description": "Решение корпоративного уровня для большого количества пользователей.",
         "key": "enterprise_scale",
+        "is_criterion": true,
         "image": "/images/enterprise_scale.png",
         "next_question_text": "Насколько важна интеграция с существующими системами?"
       }
     ]
   },
   {
-    "key": ["web_development", "real_time_data", "ai_support", "hybrid_chatbot", "low_cost", "basic_security", "small_scale"],
+    "filter_keys": ["web_development", "real_time_data", "ai_support", "hybrid_chatbot", "low_cost", "basic_security", "small_scale"],
     "question_text": "Насколько важна интеграция с существующими системами?",
     "options": [
       {
         "title": "Низкий приоритет",
         "description": "Интеграция с существующими системами не является критически важной.",
         "key": "low_priority",
+        "is_criterion": true,
         "image": "/images/low_priority.png",
         "next_question_text": "Какой уровень настройки чат-бота вам требуется?"
       },
@@ -95,6 +105,7 @@
         "title": "Средний приоритет",
         "description": "Интеграция с существующими системами имеет умеренную важность.",
         "key": "moderate_priority",
+        "is_criterion": true,
         "image": "/images/moderate_priority.png",
         "next_question_text": "Какой уровень настройки чат-бота вам требуется?"
       },
@@ -102,19 +113,21 @@
         "title": "Высокий приоритет",
         "description": "Интеграция с существующими системами критически важна.",
         "key": "high_priority",
+        "is_criterion": true,
         "image": "/images/high_priority.png",
         "next_question_text": "Какой уровень настройки чат-бота вам требуется?"
       }
     ]
   },
   {
-    "key": ["web_development", "real_time_data", "ai_support", "hybrid_chatbot", "low_cost", "basic_security", "small_scale"],
+    "filter_keys": ["web_development", "real_time_data", "ai_support", "hybrid_chatbot", "low_cost", "basic_security", "small_scale"],
     "question_text": "Насколько важна интеграция с существующими системами?",
     "options": [
       {
         "title": "Базовая настройка",
         "description": "Базовая настройка",
         "key": "basic_customization",
+        "is_criterion": true,
         "image": "/images/basic_customization.png",
         "next_question_text": null
       },
@@ -122,6 +135,7 @@
         "title": "Средняя настройка",
         "description": "Средняя настройка",
         "key": "moderate_customization",
+        "is_criterion": true,
         "image": "/images/moderate_customization.png",
         "next_question_text": null
       },
@@ -129,6 +143,7 @@
         "title": "Полная настройка",
         "description": "Полная настройка",
         "key": "full_customization",
+        "is_criterion": true,
         "image": "/images/full_customization.png",
         "next_question_text": null
       }

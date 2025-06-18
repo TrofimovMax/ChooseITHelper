@@ -22,10 +22,10 @@ def build_ahp_input(frameworks: List[Framework], criteria: List[Key], db: Sessio
                         FrameworkKey.key_id == key.id)
                 .scalar()
             )
-            criteria_scores[key.key] = score or 0.0
+            criteria_scores[key.title] = score or 0.0
 
         input_data.append({
-            "name": framework.title,
+            "title": framework.title,
             "language_name": language_name,
             "criteria_scores": criteria_scores
         })

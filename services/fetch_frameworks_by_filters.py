@@ -12,7 +12,10 @@ def fetch_frameworks_by_filters(keys_ids: list[int], db: Session):
     Returns a list of framework IDs sorted by the count of matching keys.
     """
     top_framework_ids = (
-        db.query(FrameworkKey.id)
+        db.query(
+            FrameworkKey.framework_id,
+            func.count(FrameworkKey.key_id).label("match_count")
+        )
         .filter(FrameworkKey.key_id.in_(keys_ids))
         .group_by(FrameworkKey.framework_id)
         .order_by(func.count(FrameworkKey.key_id).desc())

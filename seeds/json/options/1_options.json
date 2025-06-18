@@ -1,6 +1,6 @@
 [
   {
-    "key": ["initial_key"],
+    "filter_keys": ["initial_key"],
     "question_text": "Какова основная цель вашего проекта?",
     "options": [
       {
@@ -111,7 +111,7 @@
     ]
   },
   {
-    "key": ["web_development"],
+    "filter_keys": ["web_development"],
     "question_text": "Какие ключевые функции должны быть в этом приложении?",
     "options": [
       {
@@ -152,7 +152,7 @@
     ]
   },
   {
-    "key": ["web_development", "real_time_data"],
+    "filter_keys": ["web_development", "real_time_data"],
     "question_text": "Какие дополнительные функции вы хотите в чате?",
     "options": [
       {
@@ -229,7 +229,7 @@
   },
 
   {
-    "key": ["web_development", "real_time_data", "ai_support"],
+    "filter_keys": ["web_development", "real_time_data", "ai_support"],
     "question_text": "Какой тип функциональности чат-бота вам нужен?",
     "options": [
       {
@@ -256,7 +256,7 @@
     ]
   },
   {
-    "key": ["web_development", "real_time_data", "ai_support", "hybrid_chatbot"],
+    "filter_keys": ["web_development", "real_time_data", "ai_support", "hybrid_chatbot"],
     "question_text": "Какова основная цель вашего гибридного чат-бота?",
     "options": [
       {
