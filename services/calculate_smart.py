@@ -21,6 +21,6 @@ def calculate_smart(frameworks: list[dict], criteria_weights: dict[str, float], 
             criteria_scores.get(criterion, 0) * weight
             for criterion, weight in criteria_weights.items()
         )
-        raw_scores[framework["name"]] = smart_score
+        raw_scores[framework["title"]] = smart_score
 
     return format_results(raw_scores, raw_frameworks, db, method_key="smart_score")

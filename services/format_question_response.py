@@ -6,11 +6,11 @@ def format_question_response(question: Question):
     Format the question and its options for the response.
     """
     return {
-        "question_id": question.question_id,
-        "text": question.text,
+        "question_id": question.id,
+        "text": question.title,
         "options": [
             {
-                "option_id": opt.option_id,
+                "option_id": opt.id,
                 "title": opt.title,
                 "description": opt.description,
                 "key": opt.key,

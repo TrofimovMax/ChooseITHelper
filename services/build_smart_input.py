@@ -5,7 +5,7 @@ def build_smart_input(frameworks: list, criteria: list, db: Session):
     from models import FrameworkKey, Language
 
     # Get all the FrameworkKey in one request
-    framework_ids = [f.framework_id for f in frameworks]
+    framework_ids = [framework.id for framework in frameworks]
     criterion_ids = [c.id for c in criteria]
 
     fk_records = db.query(FrameworkKey).filter(
@@ -24,8 +24,8 @@ def build_smart_input(frameworks: list, criteria: list, db: Session):
     # Getting the names of the languages
     lang_ids = [f.language_id for f in frameworks]
     lang_map = {
-        lang.language_id: lang.name
-        for lang in db.query(Language).filter(Language.language_id.in_(lang_ids)).all()
+        lang.language_id: lang.title
+        for lang in db.query(Language).filter(Language.id.in_(lang_ids)).all()
     }
 
     result = []
@@ -36,7 +36,7 @@ def build_smart_input(frameworks: list, criteria: list, db: Session):
             for c in criteria
         }
         result.append({
-            "name": fw.name,
+            "title": fw.title,
             "language_name": lang_map.get(fw.language_id, "Unknown"),
             "criteria_scores": crit_scores
         })

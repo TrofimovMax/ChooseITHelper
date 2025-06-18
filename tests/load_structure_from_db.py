@@ -1,23 +1,30 @@
 # tests/load_structure_from_db.py
 
-# run script with
+# run with:
 # $env:ENV_FILE=".env.test"; python tests/load_structure_from_db.py
 
-import psycopg2
-from sqlalchemy import create_engine, text
-from models import Base
-from dotenv import load_dotenv
 import os
+import sys
+import psycopg2
+from sqlalchemy import create_engine
+from dotenv import load_dotenv
 
-load_dotenv(dotenv_path=".env.test")
+current_dir = os.path.dirname(os.path.abspath(__file__))
+project_root = os.path.abspath(os.path.join(current_dir, ".."))
+sys.path.append(project_root)
 
-TEST_DATABASE_URL = os.getenv("TEST_DATABASE_URL")
+from models.base import Base
+
+env_file = os.getenv("ENV_FILE", ".env.test")
+load_dotenv(dotenv_path=env_file)
 
 DB_NAME = os.getenv("DB_NAME")
 DB_USER = os.getenv("DB_USER")
 DB_PASSWORD = os.getenv("DB_PASSWORD")
 DB_HOST = os.getenv("DB_HOST")
 DB_PORT = os.getenv("DB_PORT")
+
+TEST_DATABASE_URL = f"postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
 
 
 def drop_and_create_database():
@@ -37,7 +44,6 @@ def drop_and_create_database():
         FROM pg_stat_activity
         WHERE datname = '{DB_NAME}' AND pid <> pg_backend_pid();
     """)
-
     cur.execute(f"DROP DATABASE IF EXISTS {DB_NAME};")
     print(f"🗑️  Dropped database '{DB_NAME}'.")
 

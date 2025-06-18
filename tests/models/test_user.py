@@ -6,24 +6,24 @@ from models.team import Team
 
 
 def test_create_user_with_team(db_session):
-    team = Team(team_name="DevOps")
+    team = Team(title="DevOps")
     db_session.add(team)
     db_session.commit()
     db_session.refresh(team)
 
     user = User(
-        name="Admin",
+        full_name="Admin",
         email="admin@example.com",
         role="admin",
-        team_id=team.team_id,
+        team_id=team.id,
     )
     db_session.add(user)
     db_session.commit()
     db_session.refresh(user)
 
-    assert user.user_id is not None
-    assert user.name == "Admin"
+    assert user.id is not None
+    assert user.full_name == "Admin"
     assert user.email == "admin@example.com"
     assert user.role == "admin"
-    assert user.team_id == team.team_id
-    assert user.team.team_name == "DevOps"
+    assert user.team_id == team.id
+    assert user.team.title == "DevOps"

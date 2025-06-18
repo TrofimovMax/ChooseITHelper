@@ -8,9 +8,9 @@ from models.base import Base
 class Framework(Base):
     __tablename__ = "frameworks"
 
-    framework_id = Column(Integer, primary_key=True, index=True)
-    name = Column(String, index=True)
-    language_id = Column(Integer, ForeignKey("languages.language_id"))
+    id = Column(Integer, primary_key=True, index=True)
+    title = Column(String, index=True)
+    language_id = Column(Integer, ForeignKey("languages.id"))
 
     feasibility = Column(Float, nullable=True)
     novelty = Column(Float, nullable=True)
@@ -19,5 +19,5 @@ class Framework(Base):
     keys = relationship("FrameworkKey", back_populates="framework")
 
     def __repr__(self):
-        return f"<Framework framework_id={self.framework_id} name={self.name} language_id={self.language_id}, " \
+        return f"<Framework id={self.id} title={self.title} language_id={self.language_id}, " \
                 f"feasibility={self.feasibility} novelty={self.novelty} usefulness={self.usefulness}> "

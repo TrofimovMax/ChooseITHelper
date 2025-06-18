@@ -16,7 +16,7 @@ def fetch_question_by_id(question_id: int, db: Session):
     :return: The question object or None if not found.
     """
     try:
-        question = db.query(Question).filter(Question.question_id == question_id).one_or_none()
+        question = db.query(Question).filter(Question.id == question_id).one_or_none()
         return format_question_response(question)
     except NoResultFound:
         return None

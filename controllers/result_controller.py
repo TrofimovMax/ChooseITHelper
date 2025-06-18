@@ -22,5 +22,5 @@ def get_result(result_id: int, db: Session = Depends(get_db)):
         "query_keys": result.query_keys,
         "smart_results": result.smart_results,
         "ahp_results": result.ahp_results,
-        "adaptive_weighted_results": result.adaptive_weighted_results,
+        "adaptive_weighted_results": result.awm_results,
     }

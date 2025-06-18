@@ -1,63 +1,65 @@
+-- db/schema.sql
+
 CREATE TABLE keys (
 	id SERIAL NOT NULL, 
-	key VARCHAR NOT NULL, 
+	title VARCHAR NOT NULL, 
 	is_criterion BOOLEAN NOT NULL, 
 	PRIMARY KEY (id), 
-	UNIQUE (key)
+	UNIQUE (title)
 );
 
 CREATE TABLE languages (
-	language_id SERIAL NOT NULL, 
-	name VARCHAR, 
-	PRIMARY KEY (language_id)
+	id SERIAL NOT NULL, 
+	title VARCHAR, 
+	PRIMARY KEY (id)
 );
 
 CREATE TABLE questions (
-	question_id SERIAL NOT NULL, 
-	text TEXT NOT NULL, 
-	PRIMARY KEY (question_id)
+	id SERIAL NOT NULL, 
+	title TEXT NOT NULL, 
+	PRIMARY KEY (id)
 );
 
 CREATE TABLE teams (
-	team_id SERIAL NOT NULL, 
-	team_name VARCHAR, 
+	id SERIAL NOT NULL, 
+	title VARCHAR, 
 	lead_id INTEGER, 
-	PRIMARY KEY (team_id), 
-	CONSTRAINT fk_team_lead FOREIGN KEY(lead_id) REFERENCES users (user_id)
+	PRIMARY KEY (id), 
+	CONSTRAINT fk_team_lead FOREIGN KEY(lead_id) REFERENCES users (id)
 );
 
 CREATE TABLE users (
-	user_id SERIAL NOT NULL, 
-	name VARCHAR, 
+	id SERIAL NOT NULL, 
+	full_name VARCHAR, 
 	email VARCHAR, 
 	role VARCHAR, 
 	team_id INTEGER, 
-	PRIMARY KEY (user_id), 
-	FOREIGN KEY(team_id) REFERENCES teams (team_id)
+	PRIMARY KEY (id), 
+	FOREIGN KEY(team_id) REFERENCES teams (id)
 );
 
 CREATE TABLE frameworks (
-	framework_id SERIAL NOT NULL, 
-	name VARCHAR, 
+	id SERIAL NOT NULL, 
+	title VARCHAR, 
 	language_id INTEGER, 
 	feasibility FLOAT, 
 	novelty FLOAT, 
 	usefulness FLOAT, 
-	PRIMARY KEY (framework_id), 
-	FOREIGN KEY(language_id) REFERENCES languages (language_id)
+	PRIMARY KEY (id), 
+	FOREIGN KEY(language_id) REFERENCES languages (id)
 );
 
 CREATE TABLE options (
-	option_id SERIAL NOT NULL, 
+	id SERIAL NOT NULL, 
 	title TEXT NOT NULL, 
 	description TEXT, 
 	image_path VARCHAR, 
 	key VARCHAR NOT NULL, 
 	question_id INTEGER NOT NULL, 
 	next_question_id INTEGER, 
-	PRIMARY KEY (option_id), 
-	FOREIGN KEY(question_id) REFERENCES questions (question_id), 
-	FOREIGN KEY(next_question_id) REFERENCES questions (question_id)
+	PRIMARY KEY (id), 
+	FOREIGN KEY(question_id) REFERENCES questions (id), 
+	FOREIGN KEY(next_question_id) REFERENCES questions (id)
 );
 
 CREATE TABLE question_keys (
@@ -65,7 +67,7 @@ CREATE TABLE question_keys (
 	question_id INTEGER NOT NULL, 
 	key_id INTEGER NOT NULL, 
 	PRIMARY KEY (id), 
-	FOREIGN KEY(question_id) REFERENCES questions (question_id), 
+	FOREIGN KEY(question_id) REFERENCES questions (id), 
 	FOREIGN KEY(key_id) REFERENCES keys (id)
 );
 
@@ -75,29 +77,30 @@ CREATE TABLE results (
 	query_keys JSONB NOT NULL, 
 	smart_results JSONB, 
 	ahp_results JSONB, 
-	adaptive_weighted_results JSONB, 
+	awm_results JSONB, 
 	PRIMARY KEY (id), 
-	FOREIGN KEY(user_id) REFERENCES users (user_id)
+	FOREIGN KEY(user_id) REFERENCES users (id)
 );
 
 CREATE TABLE developers (
-	developer_id SERIAL NOT NULL, 
-	name VARCHAR, 
+	id SERIAL NOT NULL, 
+	full_name VARCHAR, 
 	technology_id INTEGER, 
 	framework_id INTEGER, 
 	team_id INTEGER, 
-	PRIMARY KEY (developer_id), 
-	FOREIGN KEY(technology_id) REFERENCES languages (language_id), 
-	FOREIGN KEY(framework_id) REFERENCES frameworks (framework_id), 
-	FOREIGN KEY(team_id) REFERENCES teams (team_id)
+	PRIMARY KEY (id), 
+	FOREIGN KEY(technology_id) REFERENCES languages (id), 
+	FOREIGN KEY(framework_id) REFERENCES frameworks (id), 
+	FOREIGN KEY(team_id) REFERENCES teams (id)
 );
 
 CREATE TABLE frameworks_keys (
+	id SERIAL NOT NULL, 
 	framework_id INTEGER NOT NULL, 
 	key_id INTEGER NOT NULL, 
 	smart_score FLOAT, 
 	ahp_score FLOAT, 
-	PRIMARY KEY (framework_id, key_id), 
-	FOREIGN KEY(framework_id) REFERENCES frameworks (framework_id), 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(framework_id) REFERENCES frameworks (id), 
 	FOREIGN KEY(key_id) REFERENCES keys (id)
 );

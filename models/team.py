@@ -9,11 +9,11 @@ from models.user import User
 class Team(Base):
     __tablename__ = "teams"
 
-    team_id = Column(Integer, primary_key=True, index=True)
-    team_name = Column(String, index=True)
+    id = Column(Integer, primary_key=True, index=True)
+    title = Column(String, index=True)
     lead_id = Column(
         Integer,
-        ForeignKey("users.user_id", name="fk_team_lead"),
+        ForeignKey("users.id", name="fk_team_lead"),
         nullable=True
     )
 

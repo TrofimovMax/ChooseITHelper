@@ -11,7 +11,7 @@ def calculate_ahp(frameworks: List[Dict], criteria_weights: Dict[str, float], db
     """
     Calculate AHP scores using pairwise comparisons and return standardized format.
     """
-    framework_names = [fw["name"] for fw in frameworks]
+    framework_names = [fw["title"] for fw in frameworks]
     num_frameworks = len(frameworks)
     cumulative_scores = {name: 0.0 for name in framework_names}
 

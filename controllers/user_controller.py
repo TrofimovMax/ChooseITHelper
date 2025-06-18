@@ -7,6 +7,7 @@ from database import get_db
 
 router = APIRouter()
 
+
 @router.get("/users/")
 def read_users(db: Session = Depends(get_db)):
     return fetch_users(db)

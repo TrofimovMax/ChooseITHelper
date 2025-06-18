@@ -12,18 +12,18 @@ from models.result import Result
 
 @pytest.fixture
 def example_keys(db_session: Session):
-    key1 = Key(key="web_development")
-    key2 = Key(key="real_time_data")
+    key1 = Key(title="web_development")
+    key2 = Key(title="real_time_data")
     db_session.add_all([key1, key2])
     db_session.commit()
-    return [key1.key, key2.key]
+    return [key1.title, key2.title]
 
 
 @pytest.fixture
 def test_user(db_session: Session):
     user = User(
-        user_id=1,
-        name="test_user",
+        id=1,
+        full_name="test_user",
         email="test@example.com",
         role="tester",
         team_id=None
@@ -64,11 +64,11 @@ def test_background_task_called(mock_create_task, db_session, client, example_ke
 
 def test_existing_result_returned(client, db_session, example_keys, test_user):
     result = Result(
-        user_id=test_user.user_id,
+        user_id=test_user.id,
         query_keys=example_keys,
         smart_results=[],
         ahp_results=[],
-        adaptive_weighted_results=[]
+        awm_results=[]
     )
     db_session.add(result)
     db_session.commit()

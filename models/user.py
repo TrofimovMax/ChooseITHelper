@@ -8,11 +8,11 @@ from models.base import Base
 class User(Base):
     __tablename__ = "users"
 
-    user_id = Column(Integer, primary_key=True, index=True)
-    name = Column(String, index=True)
+    id = Column(Integer, primary_key=True, index=True)
+    full_name = Column(String, index=True)
     email = Column(String, unique=True, index=True)
     role = Column(String, index=True)
-    team_id = Column(Integer, ForeignKey("teams.team_id"))
+    team_id = Column(Integer, ForeignKey("teams.id"))
 
     team = relationship("Team", back_populates="users", foreign_keys=[team_id])
     results = relationship("Result", back_populates="user")
