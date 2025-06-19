@@ -10,6 +10,7 @@ sys.path.append(project_root)
 
 from sqlalchemy.orm import Session
 from database import SessionLocal
+from models import Question, Option
 from seeds.questions import seed_questions
 from seeds.options import seed_options
 from seeds.technologies_frameworks import seed_languages, seed_frameworks
@@ -60,6 +61,18 @@ def run_seeding():
         # users
         seed_admin_user(db)
 
+        db.commit()
+
+        # TODO: need to figure out why the wrong question_id is being created for key options
+        print("🩹 Updating question_id for customization options...")
+        last_question = db.query(Question).order_by(Question.id.desc()).first()
+        if last_question:
+            db.query(Option).filter(Option.key.in_([
+                "basic_customization",
+                "moderate_customization",
+                "full_customization"
+            ])).update({Option.question_id: last_question.id}, synchronize_session=False)
+            print(f"🩹 Assigned to Question ID: {last_question.id}")
         db.commit()
         print("✅ Seeding completed successfully.")
 

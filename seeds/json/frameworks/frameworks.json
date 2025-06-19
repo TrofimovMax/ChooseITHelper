@@ -1283,17 +1283,21 @@
         "usefulness": 0.95,
         "keys": [
           "web_development",
+          "enterprise_apps",
+          "customer_support",
+          "standard_security",
+          "moderate_cost",
+          "moderate_scale",
+          "moderate_customization",
+          "http_handling",
           "modular_design",
-          "small_scale",
-          "moderate_scale", "enterprise_scale", "enterprise_support",
-          "basic_security", "standard_security", "advanced_security",
-          "real_time_data",
-          "ai_support",
-          "hybrid_chatbot",
-          "customer_support"
+          "api_integration",
+          "testing",
+          "reliability",
+          "business_systems"
         ],
-        "smart_score": 0.92,
-        "ahp_score": 0.93
+        "smart_score": 0.63,
+        "ahp_score": 0.54
       },
       {
         "name": "Hibernate",

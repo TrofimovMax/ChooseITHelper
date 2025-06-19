@@ -4,6 +4,7 @@ from sqlalchemy.orm import Session
 from models.result import Result
 from models.key import Key
 from services.build_ahp_input import build_ahp_input
+from services.build_awm_input import enrich_frameworks_with_meta
 from services.build_smart_input import build_smart_input
 from services.calculate_ahp import calculate_ahp
 from services.calculate_smart import calculate_smart
@@ -44,7 +45,14 @@ def create_results_for_keys(query_keys: list[str], user_id: int):
         ahp_input = build_ahp_input(top_frameworks, criteria, db)
         ahp_results = calculate_ahp(ahp_input, criteria_weights, db, top_frameworks)
 
-        awm_results = calculate_adaptive_weighted_method()
+        enriched_frameworks = enrich_frameworks_with_meta(ahp_input, top_frameworks)
+
+        awm_results = calculate_adaptive_weighted_method(
+            frameworks=enriched_frameworks,
+            criteria_weights=criteria_weights,
+            raw_frameworks=top_frameworks,
+            db=db
+        )
 
         # Store the results in the database
         new_result = Result(
