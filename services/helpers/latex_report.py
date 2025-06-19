@@ -25,7 +25,7 @@ class LaTeXReport:
             r"\usepackage{amsmath, booktabs, geometry, longtable}",
             r"\geometry{a4paper, margin=1in}",
             r"\title{%s}" % self.title,
-            r"\author{ChooseITHelper Engine}",
+            r"\author{Choose IT-Helper Engine}",
             r"\begin{document}",
             r"\maketitle",
         ]

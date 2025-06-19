@@ -53,15 +53,16 @@ def create_results_for_keys(query_keys: list[str], user_id: int):
         print(f"📄 AHP Report saved to: {ahp_path_to_report}")
 
         enriched_frameworks = enrich_frameworks_with_meta(ahp_input, top_frameworks)
-        # awm_reporter = LaTeXReport("AWM Report")
+        awm_reporter = LaTeXReport("AWM Report")
         awm_results = calculate_adaptive_weighted_method(
             frameworks=enriched_frameworks,
             criteria_weights=criteria_weights,
             raw_frameworks=top_frameworks,
-            db=db
+            db=db,
+            reporter=awm_reporter
         )
-        # awm_path_to_report = awm_reporter.save()
-        # print(f"📄 AWM Report saved to: {awm_path_to_report}")
+        awm_path_to_report = awm_reporter.save()
+        print(f"📄 AWM Report saved to: {awm_path_to_report}")
 
         # Store the results in the database
         new_result = Result(

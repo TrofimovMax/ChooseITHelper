@@ -10,7 +10,8 @@ def calculate_adaptive_weighted_method(
     frameworks: List[Dict],
     criteria_weights: Dict[str, float],
     raw_frameworks: list,
-    db: Session
+    db: Session,
+    reporter=None
 ) -> List[Dict]:
     """
     Adaptive Weighted Method (AWM) evaluation using detailed adaptive coefficient calculation.
@@ -18,38 +19,51 @@ def calculate_adaptive_weighted_method(
     """
     results = []
 
+    if reporter:
+        reporter.add_section("AWM Formula",
+                             r"$S_j = \sum_{i=1}^{n} w_i \cdot v_{ij} \cdot p_{ij}$, where $p_{ij}$ is the adaptive coefficient.")
+
     for fw in frameworks:
         framework_id = fw["id"]
         framework_title = fw["title"]
         language_name = fw["language_name"]
 
-        print(f"\n┌─────────────────────────────────────────────────────────────────────────────┐")
-        print(f"│ Framework: {framework_title:<25} Language: {language_name:<15} │")
-        print(f"└─────────────────────────────────────────────────────────────────────────────┘")
+        lines = []
+        lines.append(rf"\textbf{{Framework:}} {framework_title} ({language_name})")
 
-        # Calculate adaptive coefficient
+        # Adaptive coefficient
         p_ij = calculate_adaptive_coefficient(db, framework_id)
-        print(f"→ p_ij (adaptive coefficient): {p_ij:.5f}")
+        lines.append(rf"$p_{{ij}}$ (adaptive coefficient): {p_ij:.5f}")
+
+        lines.append(r"\begin{longtable}{l r r r} ")
+        lines.append(r"\toprule")
+        lines.append(r"Criterion & Weight ($w_i$) & Value ($v_{ij}$) & $w_i \cdot v_{ij} \cdot p_{ij}$ \\ \midrule")
 
         score = 0.0
-        print(f"\n┌─────────────────────────────┬────────────┬──────────┬────────────┐")
-        print(f"│ Criterion                   │ Weight (w) │ v_ij     │ w * v * p  │")
-        print(f"├─────────────────────────────┼────────────┼──────────┼────────────┤")
-
         for criterion, weight in criteria_weights.items():
             v_ij = fw["criteria_scores"].get(criterion, 0.0)
             weighted = weight * v_ij * p_ij
-            print(f"│ {criterion:<27} │ {weight:<10.2f} │ {v_ij:<8.2f} │ {weighted:<10.5f} │")
             score += weighted
+            escaped_criterion = criterion.replace('_', r'\_')
+            lines.append(f"{escaped_criterion} & {weight:.2f} & {v_ij:.2f} & {weighted:.5f} \\\\")
 
-        print(f"└─────────────────────────────┴────────────┴──────────┴────────────┘")
-        print(f"✔ Final AWM score for {framework_title}: {score:.5f}")
+        lines.append(r"\bottomrule \end{longtable}")
+        lines.append(rf"\textbf{{Final AWM Score}}: {score:.5f} \\\\")
+
+        reporter.add_section(f"AWM Score for {framework_title}", "\n".join(lines))
 
         results.append({
             "framework_title": framework_title,
             "language_name": language_name,
             "awm_score": score
         })
+
+    if reporter:
+        summary_lines = [r"\begin{longtable}{l r} \toprule Framework & AWM Score \\ \midrule"]
+        for r in results:
+            summary_lines.append(f"{r['framework_title']} & {r['awm_score']:.5f} \\\\")
+        summary_lines.append(r"\bottomrule \end{longtable}")
+        reporter.add_section("Final AWM Scores", "\n".join(summary_lines))
 
     return format_results(
         {r["framework_title"]: r["awm_score"] for r in results},
