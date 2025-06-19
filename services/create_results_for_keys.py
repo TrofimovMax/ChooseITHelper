@@ -44,11 +44,13 @@ def create_results_for_keys(query_keys: list[str], user_id: int):
         smart_reporter = LaTeXReport("S.M.A.R.T. Report")
         smart_results = calculate_smart(smart_input, criteria_weights, db, top_frameworks, reporter=smart_reporter)
         smart_path_to_report = smart_reporter.save()
-        print(f"📄 LaTeX report saved to: {smart_path_to_report}")
+        print(f"📄 S.M.A.R.T. Report saved to: {smart_path_to_report}")
 
         ahp_input = build_ahp_input(top_frameworks, criteria, db)
-        # ahp_reporter = LaTeXReport("AHP Report")
-        ahp_results = calculate_ahp(ahp_input, criteria_weights, db, top_frameworks)
+        ahp_reporter = LaTeXReport("AHP Report")
+        ahp_results = calculate_ahp(ahp_input, criteria_weights, db, top_frameworks, reporter=ahp_reporter)
+        ahp_path_to_report = ahp_reporter.save()
+        print(f"📄 AHP Report saved to: {ahp_path_to_report}")
 
         enriched_frameworks = enrich_frameworks_with_meta(ahp_input, top_frameworks)
         # awm_reporter = LaTeXReport("AWM Report")
@@ -58,6 +60,8 @@ def create_results_for_keys(query_keys: list[str], user_id: int):
             raw_frameworks=top_frameworks,
             db=db
         )
+        # awm_path_to_report = awm_reporter.save()
+        # print(f"📄 AWM Report saved to: {awm_path_to_report}")
 
         # Store the results in the database
         new_result = Result(

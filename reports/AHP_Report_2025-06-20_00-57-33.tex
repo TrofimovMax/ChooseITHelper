@@ -1,0 +1,68 @@
+\documentclass{article}
+\usepackage{amsmath, booktabs, geometry, longtable}
+\geometry{a4paper, margin=1in}
+\title{AHP Report}
+\author{ChooseITHelper Engine}
+\begin{document}
+\maketitle
+\section*{AHP Formula}
+$S_j = \sum_{i=1}^{n} w_i \cdot s_{ij}$, where $s_{ij}$ is the local priority of alternative $j$ for criterion $i$.
+\section*{Pairwise Matrix for low\_cost}
+\begin{longtable}{l r r r r r} 
+\toprule
+ & Gin & Node.js + NestJS & Express & React + Firebase & FastAPI \\ \midrule
+Gin & 1.000 & 0.812 & 0.844 & 0.783 & 0.833 \\
+Node.js + NestJS & 1.231 & 1.000 & 1.039 & 0.964 & 1.026 \\
+Express & 1.185 & 0.963 & 1.000 & 0.928 & 0.987 \\
+React + Firebase & 1.277 & 1.037 & 1.078 & 1.000 & 1.064 \\
+FastAPI & 1.200 & 0.975 & 1.013 & 0.940 & 1.000 \\
+\bottomrule \end{longtable}
+\section*{Pairwise Matrix for standard\_security}
+\begin{longtable}{l r r r r r} 
+\toprule
+ & Gin & Node.js + NestJS & Express & React + Firebase & FastAPI \\ \midrule
+Gin & 1.000 & 0.812 & 0.844 & 0.783 & 0.833 \\
+Node.js + NestJS & 1.231 & 1.000 & 1.039 & 0.964 & 1.026 \\
+Express & 1.185 & 0.963 & 1.000 & 0.928 & 0.987 \\
+React + Firebase & 1.277 & 1.037 & 1.078 & 1.000 & 1.064 \\
+FastAPI & 1.200 & 0.975 & 1.013 & 0.940 & 1.000 \\
+\bottomrule \end{longtable}
+\section*{Pairwise Matrix for small\_scale}
+\begin{longtable}{l r r r r r} 
+\toprule
+ & Gin & Node.js + NestJS & Express & React + Firebase & FastAPI \\ \midrule
+Gin & 1.000 & 1.000 & 0.000 & 0.000 & 1.000 \\
+Node.js + NestJS & 1.000 & 1.000 & 0.000 & 0.000 & 1.000 \\
+Express & 770000.000 & 770000.000 & 1.000 & 0.928 & 770000.000 \\
+React + Firebase & 830000.000 & 830000.000 & 1.078 & 1.000 & 830000.000 \\
+FastAPI & 1.000 & 1.000 & 0.000 & 0.000 & 1.000 \\
+\bottomrule \end{longtable}
+\section*{Pairwise Matrix for low\_priority}
+\begin{longtable}{l r r r r r} 
+\toprule
+ & Gin & Node.js + NestJS & Express & React + Firebase & FastAPI \\ \midrule
+Gin & 1.000 & 0.812 & 0.844 & 0.783 & 0.833 \\
+Node.js + NestJS & 1.231 & 1.000 & 1.039 & 0.964 & 1.026 \\
+Express & 1.185 & 0.963 & 1.000 & 0.928 & 0.987 \\
+React + Firebase & 1.277 & 1.037 & 1.078 & 1.000 & 1.064 \\
+FastAPI & 1.200 & 0.975 & 1.013 & 0.940 & 1.000 \\
+\bottomrule \end{longtable}
+\section*{Pairwise Matrix for basic\_customization}
+\begin{longtable}{l r r r r r} 
+\toprule
+ & Gin & Node.js + NestJS & Express & React + Firebase & FastAPI \\ \midrule
+Gin & 1.000 & 0.812 & 0.844 & 0.783 & 0.833 \\
+Node.js + NestJS & 1.231 & 1.000 & 1.039 & 0.964 & 1.026 \\
+Express & 1.185 & 0.963 & 1.000 & 0.928 & 0.987 \\
+React + Firebase & 1.277 & 1.037 & 1.078 & 1.000 & 1.064 \\
+FastAPI & 1.200 & 0.975 & 1.013 & 0.940 & 1.000 \\
+\bottomrule \end{longtable}
+\section*{Final AHP Scores}
+\begin{longtable}{l r} \toprule Framework & Normalized AHP Score \\ \midrule
+React + Firebase & 0.24417 \\
+Node.js + NestJS & 0.18989 \\
+FastAPI & 0.18515 \\
+Express & 0.22651 \\
+Gin & 0.15428 \\
+\bottomrule \end{longtable}
+\end{document}
