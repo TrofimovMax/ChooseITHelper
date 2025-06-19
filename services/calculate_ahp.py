@@ -1,45 +1,35 @@
 # services/calculate_ahp.py
 
-import numpy as np
-import math
+from typing import List, Dict
+from ahpy import Compare
 from services.format_results import format_results
 from sqlalchemy.orm import Session
-from typing import List, Dict
 
 
-def calculate_ahp(frameworks: List[Dict], criteria_weights: Dict[str, float], db: Session, raw_frameworks: list) -> \
-        List[dict]:
-    """
-    Calculate AHP scores using pairwise comparisons and return standardized format.
-    """
-    framework_names = [fw["title"] for fw in frameworks]
-    num_frameworks = len(frameworks)
-    cumulative_scores = {name: 0.0 for name in framework_names}
+def calculate_ahp(ahp_input: List[Dict], criteria_weights: dict, db: Session, raw_frameworks: list) -> list[dict]:
+    scores_accumulator = {}
 
-    for criterion, weight in criteria_weights.items():
-        scores = [fw["criteria_scores"].get(criterion, 0.0) for fw in frameworks]
+    criterion_map = {}
+    for fw in ahp_input:
+        title = fw["title"]
+        for crit, score in fw.get("criteria_scores", {}).items():
+            criterion_map.setdefault(crit, {})[title] = score
 
-        if all(score == 0 for score in scores):
-            print(f"⚠️ All scores for criterion '{criterion}' are 0. Skipping this criterion.")
-            continue
+    for criterion, framework_scores in criterion_map.items():
+        comparisons = {}
+        frameworks = list(framework_scores.keys())
 
-        comparison_matrix = np.zeros((num_frameworks, num_frameworks))
-        for i in range(num_frameworks):
-            for j in range(num_frameworks):
-                denominator = scores[j] if scores[j] != 0 else 1e-6
-                comparison_matrix[i][j] = scores[i] / denominator
+        for i in range(len(frameworks)):
+            for j in range(i + 1, len(frameworks)):
+                a = frameworks[i]
+                b = frameworks[j]
+                a_score = framework_scores[a] or 1e-6
+                b_score = framework_scores[b] or 1e-6
+                comparisons[(a, b)] = a_score / b_score
 
-        col_sum = comparison_matrix.sum(axis=0)
+        model = Compare(name=criterion, comparisons=comparisons, precision=5, random_index='saaty')
+        weight = criteria_weights.get(criterion, 1.0)
+        for fw, local_score in model.target_weights.items():
+            scores_accumulator[fw] = scores_accumulator.get(fw, 0.0) + weight * local_score
 
-        col_sum[col_sum == 0] = 1e-6
-        normalized_matrix = comparison_matrix / col_sum
-        priority_vector = normalized_matrix.mean(axis=1)
-
-        for i, name in enumerate(framework_names):
-            value = weight * priority_vector[i]
-            if math.isnan(value):
-                print(f"❌ NaN detected for {name} — setting to 0.0")
-                value = 0.0
-            cumulative_scores[name] += value
-
-    return format_results(cumulative_scores, raw_frameworks, db, method_key="ahp_score")
+    return format_results(scores_accumulator, raw_frameworks, db, method_key="ahp_score")
