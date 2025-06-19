@@ -7,6 +7,7 @@ from services.build_ahp_input import build_ahp_input
 from services.build_awm_input import enrich_frameworks_with_meta
 from services.build_smart_input import build_smart_input
 from services.calculate_ahp import calculate_ahp
+from services.calculate_criteria_weights import calculate_criteria_weights
 from services.calculate_smart import calculate_smart
 from services.calculate_adaptive_weighted_method import calculate_adaptive_weighted_method
 from services.fetch_frameworks_by_filters import fetch_frameworks_by_filters
@@ -33,13 +34,12 @@ def create_results_for_keys(query_keys: list[str], user_id: int):
         # Fetch top 5 frameworks based on matching key counts
         top_frameworks = fetch_frameworks_by_filters(keys_ids, db)
 
+        criteria_weights = calculate_criteria_weights(criteria, top_frameworks, db)
+
         if not top_frameworks:
             raise ValueError("No matching frameworks found for the given keys.")
 
         smart_input = build_smart_input(top_frameworks, criteria, db)
-        criteria_weights = {
-            crit.title: 1 / len(criteria) for crit in criteria
-        }
         smart_results = calculate_smart(smart_input, criteria_weights, db, top_frameworks)
 
         ahp_input = build_ahp_input(top_frameworks, criteria, db)
