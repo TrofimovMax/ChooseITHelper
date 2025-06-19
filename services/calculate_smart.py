@@ -23,4 +23,10 @@ def calculate_smart(frameworks: list[dict], criteria_weights: dict[str, float], 
         )
         raw_scores[framework["title"]] = smart_score
 
-    return format_results(raw_scores, raw_frameworks, db, method_key="smart_score")
+    total = sum(raw_scores.values()) or 1e-6
+
+    normalized_scores = {
+        k: v / total for k, v in raw_scores.items()
+    }
+
+    return format_results(normalized_scores, raw_frameworks, db, method_key="smart_score")
