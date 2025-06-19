@@ -1,10 +1,13 @@
 # config.py
 
-from dotenv import load_dotenv
 import os
+from dotenv import load_dotenv
 
-env_file = os.getenv("ENV_FILE", ".env.development")
-load_dotenv(dotenv_path=env_file)
+# Autoload .env.test if running with pytest and ENV_FILE is not explicitly set
+if not os.getenv("ENV_FILE") and "PYTEST_VERSION" in os.environ:
+    os.environ["ENV_FILE"] = ".env.test"
+
+load_dotenv(dotenv_path=os.getenv("ENV_FILE", ".env.development"))
 
 DB_NAME = os.getenv("DB_NAME")
 DB_USER = os.getenv("DB_USER")
