@@ -1,0 +1,33 @@
+\documentclass{article}
+\usepackage{amsmath, booktabs, geometry, longtable}
+\geometry{a4paper, margin=1in}
+\title{S.M.A.R.T. Report}
+\author{ChooseITHelper Engine}
+\begin{document}
+\maketitle
+\section*{SMART Calculation}
+\textbf{Formula:} $S_j = \sum_{i=1}^{n} w_i \cdot v_{ij}$
+\par\vspace{1em}
+\textbf{Criteria Weights:}
+\begin{longtable}{l r} \toprule Criterion & Weight \\ \midrule
+low\_cost & 0.23 \\
+standard\_security & 0.23 \\
+small\_scale & 0.09 \\
+low\_priority & 0.23 \\
+basic\_customization & 0.23 \\
+\bottomrule \end{longtable}
+\par\vspace{1em}
+\textbf{Gin}: $0.23 \cdot 0.61 = 0.1386 + 0.23 \cdot 0.61 = 0.1386 + 0.09 \cdot 0.00 = 0.0000 + 0.23 \cdot 0.61 = 0.1386 + 0.23 \cdot 0.61 = 0.1386$\\[0.5em]
+\textbf{Node.js + NestJS}: $0.23 \cdot 0.82 = 0.1864 + 0.23 \cdot 0.82 = 0.1864 + 0.09 \cdot 0.00 = 0.0000 + 0.23 \cdot 0.82 = 0.1864 + 0.23 \cdot 0.82 = 0.1864$\\[0.5em]
+\textbf{Express}: $0.23 \cdot 0.83 = 0.1886 + 0.23 \cdot 0.83 = 0.1886 + 0.09 \cdot 0.83 = 0.0755 + 0.23 \cdot 0.83 = 0.1886 + 0.23 \cdot 0.83 = 0.1886$\\[0.5em]
+\textbf{React + Firebase}: $0.23 \cdot 0.85 = 0.1932 + 0.23 \cdot 0.85 = 0.1932 + 0.09 \cdot 0.85 = 0.0773 + 0.23 \cdot 0.85 = 0.1932 + 0.23 \cdot 0.85 = 0.1932$\\[0.5em]
+\textbf{FastAPI}: $0.23 \cdot 0.80 = 0.1818 + 0.23 \cdot 0.80 = 0.1818 + 0.09 \cdot 0.00 = 0.0000 + 0.23 \cdot 0.80 = 0.1818 + 0.23 \cdot 0.80 = 0.1818$\\[0.5em]
+\vspace{1em}
+\begin{longtable}{l r} \toprule Framework & Normalized SMART Score \\ \midrule
+Gin & 0.14958 \\
+Node.js + NestJS & 0.20108 \\
+Express & 0.22388 \\
+React + Firebase & 0.22928 \\
+FastAPI & 0.19617 \\
+\bottomrule \end{longtable}
+\end{document}

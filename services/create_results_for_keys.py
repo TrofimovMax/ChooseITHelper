@@ -11,6 +11,7 @@ from services.calculate_criteria_weights import calculate_criteria_weights
 from services.calculate_smart import calculate_smart
 from services.calculate_adaptive_weighted_method import calculate_adaptive_weighted_method
 from services.fetch_frameworks_by_filters import fetch_frameworks_by_filters
+from services.helpers.latex_report import LaTeXReport
 from services.prepare_criteria_and_alternatives import prepare_criteria_and_alternatives
 from database import SessionLocal
 
@@ -40,13 +41,17 @@ def create_results_for_keys(query_keys: list[str], user_id: int):
             raise ValueError("No matching frameworks found for the given keys.")
 
         smart_input = build_smart_input(top_frameworks, criteria, db)
-        smart_results = calculate_smart(smart_input, criteria_weights, db, top_frameworks)
+        smart_reporter = LaTeXReport("S.M.A.R.T. Report")
+        smart_results = calculate_smart(smart_input, criteria_weights, db, top_frameworks, reporter=smart_reporter)
+        smart_path_to_report = smart_reporter.save()
+        print(f"📄 LaTeX report saved to: {smart_path_to_report}")
 
         ahp_input = build_ahp_input(top_frameworks, criteria, db)
+        # ahp_reporter = LaTeXReport("AHP Report")
         ahp_results = calculate_ahp(ahp_input, criteria_weights, db, top_frameworks)
 
         enriched_frameworks = enrich_frameworks_with_meta(ahp_input, top_frameworks)
-
+        # awm_reporter = LaTeXReport("AWM Report")
         awm_results = calculate_adaptive_weighted_method(
             frameworks=enriched_frameworks,
             criteria_weights=criteria_weights,

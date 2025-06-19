@@ -12,3 +12,8 @@ models/__pycache__
 # For example, ignore environment directories
 venv/
 env/
+
+# Ignore LaTeX build files
+*.aux
+*.log
+*.pdf
