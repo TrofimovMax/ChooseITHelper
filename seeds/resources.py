@@ -19,6 +19,7 @@ def seed_resources(file_path: str, db: Session):
         resource_title = item.get("title")
         rank = item.get("rank")
         total = item.get("total")
+        type = item.get("type")
 
         print(f"🔍 Checking: {framework_title=} {language_name=}")
 
@@ -40,7 +41,8 @@ def seed_resources(file_path: str, db: Session):
             language_id=language_id,
             framework_id=framework_id,
             rank=rank,
-            total=total
+            total=total,
+            type=type
         )
 
         db.add(resource)

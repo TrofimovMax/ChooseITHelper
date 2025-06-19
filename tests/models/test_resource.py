@@ -1,6 +1,6 @@
 # tests/models/test_resource.py
 
-from models.resource import Resource
+from models.resource import Resource, ResourceType
 from models.language import Language
 from models.framework import Framework
 
@@ -25,7 +25,8 @@ def test_create_resource_model(db_session):
         language_id=language.id,
         framework_id=framework.id,
         rank=42000,
-        total=89000
+        total=89000,
+        type=ResourceType.novelty
     )
     db_session.add(resource)
     db_session.commit()
@@ -36,5 +37,6 @@ def test_create_resource_model(db_session):
     assert result.title == "GitHub Stars"
     assert result.rank == 42000
     assert result.total == 89000
+    assert result.type == ResourceType.novelty
     assert result.language.title == "Python"
     assert result.framework.title == "FastAPI"

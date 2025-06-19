@@ -4,41 +4,47 @@
     "language_name": "JavaScript",
     "title": "hh.ru Vacancies",
     "rank": 1200,
-    "total": 56000
+    "total": 56000,
+    "type": "feasibility"
   },
   {
     "framework_title": "Node.js + NestJS",
     "language_name": "JavaScript",
     "title": "hh.ru Vacancies",
     "rank": 1200,
-    "total": 56000
+    "total": 56000,
+    "type": "feasibility"
   },
   {
     "framework_title": "FastAPI",
     "language_name": "Python",
     "title": "hh.ru Vacancies",
     "rank": 150,
-    "total": 12000
+    "total": 12000,
+    "type": "feasibility"
   },
   {
     "framework_title": "Gin",
     "language_name": "Golang",
     "title": "hh.ru Vacancies",
     "rank": 50,
-    "total": 800
+    "total": 800,
+    "type": "feasibility"
   },
   {
     "framework_title": "ASP.NET",
     "language_name": "C#",
     "title": "hh.ru Vacancies",
     "rank": 119,
-    "total": 5000
+    "total": 5000,
+    "type": "feasibility"
   },
   {
     "framework_title": "React + Firebase",
     "language_name": "JavaScript",
     "title": "hh.ru Vacancies",
     "rank": 350,
-    "total": 56000
+    "total": 56000,
+    "type": "feasibility"
   }
 ]

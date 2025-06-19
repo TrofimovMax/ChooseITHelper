@@ -3,6 +3,7 @@
 import tempfile
 import json
 from models import Language, Framework, Resource
+from models.resource import ResourceType
 from seeds.resources import seed_resources
 
 
@@ -24,14 +25,16 @@ def test_seed_resources_creates_entries(db_session):
             "language_name": "Golang",
             "title": "GitHub Stars",
             "rank": 61000,
-            "total": 89000
+            "total": 89000,
+            "type": "novelty"
         },
         {
             "framework_title": "Node.js + NestJS",
             "language_name": "JavaScript",
             "title": "GitHub Stars",
             "rank": 59000,
-            "total": 89000
+            "total": 89000,
+            "type": "novelty"
         }
     ]
 

@@ -104,3 +104,16 @@ CREATE TABLE frameworks_keys (
 	FOREIGN KEY(framework_id) REFERENCES frameworks (id), 
 	FOREIGN KEY(key_id) REFERENCES keys (id)
 );
+
+CREATE TABLE resources (
+	id SERIAL NOT NULL, 
+	title VARCHAR NOT NULL, 
+	language_id INTEGER NOT NULL, 
+	framework_id INTEGER NOT NULL, 
+	rank INTEGER, 
+	total INTEGER, 
+	type resourcetype NOT NULL, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(language_id) REFERENCES languages (id), 
+	FOREIGN KEY(framework_id) REFERENCES frameworks (id)
+);

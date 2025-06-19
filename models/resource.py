@@ -1,9 +1,16 @@
 # models/resource.py
 
-from sqlalchemy import Column, Integer, String, ForeignKey
+import enum
+from sqlalchemy import Column, Integer, String, ForeignKey, Enum
 from sqlalchemy.orm import relationship
 
 from models.base import Base
+
+
+class ResourceType(enum.Enum):
+    feasibility = "feasibility"
+    novelty = "novelty"
+    usefulness = "usefulness"
 
 
 class Resource(Base):
@@ -15,6 +22,7 @@ class Resource(Base):
     framework_id = Column(Integer, ForeignKey("frameworks.id"), nullable=False)
     rank = Column(Integer)
     total = Column(Integer)
+    type = Column(Enum(ResourceType), nullable=False)
 
     language = relationship("Language")
     framework = relationship("Framework")
